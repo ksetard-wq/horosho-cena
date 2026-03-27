@@ -1,0 +1,176 @@
+body {
+    background-color: #ffffff; /* Устанавливает белый цвет для всего фона страницы */
+}
+
+.map-container {
+    position: relative;
+    height: 600px; /* Высота блока с картой */
+    margin: 0 30px;
+    background: #ffffff;
+}
+
+#map {
+    width: 100%;
+    height: 600px;
+    background: white;
+}
+
+.sidebar {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 440px;
+    background: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    max-height: 90%;
+    overflow-y: auto;
+    z-index: 100;
+}
+
+.search-box1 {
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+    transition: border-color 0.3s; /* Плавный переход цвета */
+}
+
+.search-box1 input {
+    width: 400px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+}
+
+.search-box1 input::placeholder {
+    color: #b0b7c1;
+}
+
+.search-box1 input:focus {
+    border-color: #76e12e;
+    box-shadow: 0 0 5px rgba(118, 225, 46, 0.3);
+}
+
+.city-title {
+    padding: 10px 15px;
+    font-weight: 600;
+    background: #f9f9f9;
+}
+
+.address-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.address-list li {
+    padding: 12px 15px;
+    border-bottom: 1px solid #f0f0f0;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.address-list li:hover {
+    background: #f0fff0;
+}
+
+.breadcrumbs {
+    padding: 30px 30px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    background: white;
+}
+
+.breadcrumbs a {
+    color: blue;
+    text-decoration: none;
+    transition: color 0.2s;
+    opacity: 0.5;
+}
+
+.breadcrumbs span {
+    padding: 10px;
+}
+
+.breadcrumbs a:hover,
+.current:hover {
+    color: #49ef09;
+}
+
+h1 {
+    padding : 40px 30px;
+    background: white;
+}
+
+.city-divider:hover,
+.address-item:hover {
+    background-color: #f2f2f2 !important;
+}
+
+.city-divider {
+    padding: 15px 20px;
+    font-weight: 500;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+    transition: all 0.2s ease;
+}
+
+.city-divider.active {
+    font-size: 20px;
+    color: #000;
+}
+
+.address-item {
+    padding: 12px 20px;
+    border-bottom: 1px solid #f9f9f9;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+/* ========================================= */
+/* --- НАСТРОЙКИ КОНТЕЙНЕРА И СКРОЛЛБАРА --- */
+/* ========================================= */
+
+/* 1. Основной контейнер */
+.address-list-container {
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+/* 2. Общая область скроллбара */
+.address-list-container::-webkit-scrollbar {
+    width: 20px;
+    background-color: transparent;
+}
+
+/* 3. Дорожка (Track) - формирует серые ограничители */
+.address-list-container::-webkit-scrollbar-track {
+    background-color: #e5e5e5;
+    border-radius: 10px;
+    border-left: 6px solid #ffffff;
+    border-right: 6px solid #ffffff;
+    border-top: 10px solid #ffffff;
+    border-bottom: 10px solid #ffffff;
+    background-clip: padding-box;
+}
+
+/* 4. Ползунок (Thumb) - зеленый элемент */
+.address-list-container::-webkit-scrollbar-thumb {
+    background-color: #76e12e;
+    border-radius: 10px;
+    border-left: 5px solid #ffffff;
+    border-right: 5px solid #ffffff;
+    border-top: 4px solid #ffffff;
+    border-bottom: 4px solid #ffffff;
+    background-clip: padding-box;
+    min-height: 40px;
+}
+
+/* Состояние при наведении */
+.address-list-container::-webkit-scrollbar-thumb:hover {
+    background-color: #5db524;
+}

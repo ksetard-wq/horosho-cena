@@ -1,0 +1,150 @@
+:root {
+    --brand-green: #71bf00; /* Тот самый зеленый */
+    --text-dark: #333;
+    --text-light: #ffffff;
+    --border-color: #e2e8f0;
+}
+
+.all-white{
+    background-color: white;
+}
+
+.help-page-wrapper {
+    max-width: 1400px;
+    margin: 20px auto;
+}
+
+/* Хедер и крошки */
+.help-header {
+    margin-bottom: 40px;
+}
+
+.breadcrumbs{
+    margin: 20px 0;
+}
+.breadcrumbs a {
+    color: blue;
+    text-decoration: none;
+    transition: color 0.2s;
+    opacity: 0.5;
+
+}
+
+.breadcrumbs span {
+    padding: 0 7px; /* Немного уменьшил отступ для крошек */
+}
+
+.breadcrumbs a:hover {
+    color: #49ef09;
+
+}
+
+.breadcrumbs .separator {
+    margin: 0 8px;
+ background-color: transparent;
+}
+
+.main-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+/* Сетка */
+.help-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 колонки */
+    gap: 20px;
+}
+
+/* Общие стили карточек */
+.help-card {
+    border-radius: 8px;
+    padding: 30px;
+    min-height: 250px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: all 0.5s ease;
+}
+
+.help-card h3 {
+    font-size: 22px;
+    margin-top: 0;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.help-card.white h3 {
+    border-bottom-color: var(--border-color);
+}
+
+/* Списки */
+.help-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.help-card ul li {
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.help-card ul li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: inherit;
+}
+
+.help-card ul li a {
+    text-decoration: none;
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+/* Варианты цветов */
+.help-card.green {
+    background-color: var(--brand-green);
+    color: var(--text-light);
+}
+
+.help-card.green ul li a {
+    color: var(--text-light);
+}
+
+.help-card.white {
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+    color: var(--text-dark);
+}
+
+.help-card.white ul li a {
+    color: var(--text-dark);
+    transition: all 0.3s ease;
+}
+
+.help-card.white ul li a:hover {
+    color: #49ef09;
+}
+
+/* Ховер эффект */
+.help-card:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12),
+    0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Адаптивность */
+@media (max-width: 992px) {
+    .help-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .help-grid {
+        grid-template-columns: 1fr;
+    }
+}

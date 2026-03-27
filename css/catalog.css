@@ -1,0 +1,265 @@
+/* Фикс наложения: каталог всегда поверх всего */
+/* Дополнения к вашему CSS */
+
+/* Основной контейнер меню */
+.catalog-menu {
+    display: none; /* Скрыто, пока нет класса .active */
+    position: fixed; /* Фиксируем на весь экран */
+    top: 0;
+    left: 0;
+    width: 1520px;
+    height: 100%;
+    background: #fff;
+    z-index: 9999; /* Поверх всего */
+    flex-direction: column;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    overflow-y: auto;
+    overflow-x: hidden;
+    align-items: flex-start;
+}
+/* Когда меню активно */
+.catalog-menu.active {
+    display: flex !important;
+    opacity: 1;
+}
+
+/* Контентная часть (категории) */
+.catalog-content {
+
+    display: flex;
+    flex: 1; /* Занимает всё пространство между шапкой и футером */
+    overflow: hidden; /* Чтобы прокручивались только списки внутри */
+}
+.catalog-sidebar-left {
+    width: 350px;
+
+    display: flex;
+    flex-direction: column;
+
+  /* Не даем ей сжиматься */
+    background: #fff;
+}
+/* Списки категорий */
+.main-categories, .sub-categories {
+    height: 100%;
+    overflow-y: auto; /* Включаем внутреннюю прокрутку */
+}
+
+/* Блокировка скролла всей страницы */
+body.no-scroll {
+    overflow: hidden;
+}
+
+/* Область со скроллом для категорий и футера */
+.catalog-sidebar-left {
+    width: 350px;
+
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    background: #fff;
+}
+.catalog-lower-section {
+    display: flex;
+    flex-direction: row; /* Сайдбар и подкатегории в ряд */
+    flex: 1;
+    position: relative;
+
+}
+/* Эта часть будет скроллиться целиком */
+
+
+/* Красивый тонкий скролл для левой части */
+
+/* Адаптация футера меню (чтобы не уезжал вниз) */
+.menu-footer {
+    padding: 20px 30px;
+
+    background: #fff;
+    flex-shrink: 0; /* Не дает футеру сжиматься */
+}
+
+/* Убедитесь, что .sub-categories имеет эти свойства для анимации */
+.sub-categories {
+    flex: 1;
+    padding: 40px 60px;
+    background: #fff;
+    /* УБРАЛИ overflow-y: auto, теперь она часть общего скролла */
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.sub-categories.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.main-categories, .left-scroll-content,.sub-categories {
+    height: auto !important;
+    overflow: visible !important;
+}
+
+/* Блокировка скролла САМОГО САЙТА (чтобы под меню ничего не дёргалось) */
+body.no-scroll {
+    overflow: hidden;
+}
+/* Стили нижнего блока */
+.menu-footer { padding: 30px;  background: #fff; }
+.footer-links { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
+.footer-links a { font-size: 18px; font-weight: 600; color: #333;transition: all 0.3s ease; }
+
+
+.separator2 { height: 1px; background: #eee; margin: 20px 0;width: 1480px; }
+.footer-user-actions { display: flex; flex-direction: column; gap: 15px; }
+
+.f-user-item {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 16px; color: #444; cursor: pointer;
+}
+.f-user-item i { color: #999; width: 20px; text-align: center; }
+
+.cart-badge-right, .badge-mini {
+    margin-left: auto;
+    background: #ff6a00;
+    color: #fff;
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+.search-inside-menu {
+    border: 1px solid #ccc;
+    display: flex;
+    flex: 1; /* Растягивается на свободное место */
+    background: #ffffff; /* Цвет фона как в оригинале */
+    border-radius: 10px;
+    align-items: center;
+    padding: 3px 15px;
+    width: 100%; /* Чтобы поиск не был слишком широким */
+}
+
+.search-inside-menu input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 12px;
+    font-size: 15px;
+    outline: none;
+}
+.search-inside-menu:focus-within {
+    border-color: #76e12e;
+    box-shadow: 0 0 2px rgba(118, 225, 46, 0.3);
+}
+
+.footer-links a:hover{
+    color: #76e12e;
+}
+.footer-user-actions a:hover{
+   color: #76e12e;
+}
+.search-icon { background: none; border: none; color: #999; }
+
+.close-menu {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 45px;
+    background: none;
+    border: none;
+    color: #ccc;
+    cursor: pointer;
+    line-height: 0.8;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s;
+}
+.close-menu:hover {
+    color: #333;
+    transform: rotate(180deg);
+}
+/* Контент */
+
+
+.main-categories {
+    width: 320px;
+    border-right: 1px solid #eee;
+    list-style: none;
+    overflow-y: auto;
+}
+
+.main-categories li {
+    padding: 15px 30px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+    color: #333;
+}
+
+/* СТРЕЛОЧКИ через FontAwesome или символы */
+.main-categories li::after {
+    content: '›';
+    font-size: 20px;
+    color: #ccc;
+    transition: 0.2s;
+}
+
+.main-categories li:hover, .main-categories li.active {
+    color: #6cea1b;
+
+}
+
+.main-categories li.active::after { color: #6cea1b; transform: translateX(3px); }
+
+/* Правая часть с плавностью */
+.sub-categories {
+    flex: 1;
+    padding: 30px 50px;
+    opacity: 0;
+    transform: translateX(10px);
+    transition: all 0.3s ease;
+    overflow-y: auto;
+}
+
+.sub-categories.visible { opacity: 1; transform: translateX(0); }
+
+#submenuList { list-style: none; display: flex; flex-direction: column; gap: 15px; }
+
+/* Первый элемент — жирный заголовок (как в оригинале) */
+#submenuList li:first-child {
+    font-weight: 700;
+    font-size: 18px;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+#submenuList li { font-size: 15px; color: #555; cursor: pointer; }
+#submenuList li:hover { color: #6cea1b; }
+.badge-count {
+    display: flex;
+   /* Скрыто по умолчанию, JS покажет если > 0 */
+    align-items: center;
+
+    background-color: #e0e0e0;
+    color: #333;
+    font-size: 11px;
+    font-weight: bold;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 25%;
+    margin-left: 1200px;
+    margin-right: 20px; /* Отступ от текста */
+padding: 6px 6px;
+}
+
+/* Оранжевый акцент для корзины */
+.badge-count.highlight {
+    background-color: #ff6b00;
+    color: white;
+}
+.footer-user-actions{
+    width: 1530px !important;
+}
+
+#cart-badge-menu{
+    margin-left: 1220px;
+}

@@ -1,0 +1,71 @@
+/* =========================================
+   СТРАНИЦА "В РАЗРАБОТКЕ" / СЕРВИСНЫЕ ЦЕНТРЫ
+   ========================================= */
+
+/* Шапка страницы (Крошки и Заголовок) */
+.all-white{
+    background-color: white;
+}
+.breadcrumbs a {
+    color: blue;         /* Цвет ссылки как на скрине */
+    text-decoration: none;  /* Убираем подчеркивание */
+    transition: color 0.2s;
+    opacity:0.5;
+}
+.breadcrumbs span{
+    padding: 10px;
+}
+.breadcrumbs a:hover {
+    color: #49ef09;         /* Цвет при наведении */
+
+}
+
+
+
+.page-header {
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Влево */
+}
+
+/* Убедись, что заголовок не имеет лишних отступов */
+.page-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #1d1d1d;
+    margin: 20px 0; /* Уменьшил верхний отступ для аккуратности */
+    text-align: left;
+}
+
+/* Блок "В разработке" с серым фоном */
+.development-block {
+     /* Светло-серый фон */
+    width: 100%;
+    padding: 120px 0; /* Большие отступы для высоты блока */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px; /* Отступ до футера (подвала) */
+}
+
+.development-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+}
+
+.development-content i {
+    font-size: 55px;
+    color: #76e12e; /* Твой фирменный зеленый цвет */
+    transform: rotate(0deg); /* Поворачиваем ключ, чтобы он лежал по диагонали как на картинке */
+}
+
+.development-content p {
+    font-size: 22px;
+    font-weight: 500;
+    color: #1d1d1d;
+    margin: 0;
+}

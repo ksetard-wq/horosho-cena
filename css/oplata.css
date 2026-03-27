@@ -1,0 +1,117 @@
+
+:root {
+    --brand-green: #79ad02; /* Тот самый зеленый из логотипа */
+    --bg-gray: ц;    /* Фон для блока доставки */
+    --text-dark: #333333;
+}
+
+body {
+
+    margin: 0;
+    padding: 0;
+
+    line-height: 1.6;
+}
+
+.page-wrapper {
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+/* Хлебные крошки */
+.breadcrumb {
+    padding: 20px 40px;
+    font-size: 0.85rem;
+}
+
+.breadcrumb a {  color: blue;         /* Цвет ссылки как на скрине */
+    text-decoration: none;  /* Убираем подчеркивание */
+    transition: color 0.2s;
+    opacity:0.5; }
+.breadcrumb span { color: #999;  padding: 10px;}
+.breadcrumb a:hover {
+    color: #49ef09;         /* Цвет при наведении */
+
+}
+
+h1 { padding: 0 40px; font-size: 2.5rem; margin-bottom: 30px; }
+.main-subtitle { font-size: 1.25rem; font-weight: 600; margin-bottom: 30px; }
+h3 { font-size: 1.1rem; margin: 0; font-weight: 600; }
+
+/* Секции */
+.white-section { padding: 0 40px 40px 40px; background: #fff; }
+.gray-section { padding: 60px 40px; background: var(--bg-gray); }
+
+/* Сетки */
+.payment-grid, .delivery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 80px;
+}
+
+.item-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.brand-icon {
+    color: var(--brand-green);
+    font-size: 1.4rem;
+    margin-right: 15px;
+}
+
+/* Тексты */
+p { font-size: 0.95rem; margin-bottom: 15px; color: #444; }
+.full-width { grid-column: 1 / -1; margin-top: 30px; }
+
+.strict-note {
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+.green-text { color: var(--brand-green); font-weight: 600; }
+
+/* Списки */
+.card-list, .simple-list {
+    padding-left: 20px;
+    font-size: 0.95rem;
+}
+.card-list li { margin-bottom: 5px; list-style-type: disc; }
+.simple-list li { margin-bottom: 10px; list-style-type: none; position: relative; }
+.simple-list li::before {
+    content: "•";
+    color: var(--text-dark);
+    position: absolute;
+    left: -15px;
+}
+
+/* Адаптивность */
+/* Делаем общий фон страницы белым */
+.page-wrapper {
+    background-color: #ffffff !important;
+}
+
+/* Убираем серый фон у блока доставки и условий */
+
+
+/* Делаем белым фон в нижней части страницы (футер и подписка) */
+footer,
+.footer-container,
+.subscription-block {
+    background-color: #ffffff !important;
+}
+.delivery-section {
+    background-color: #f5f5f5 !important; /* Тот самый серый со скриншотов */
+    padding: 60px 40px;
+    margin-top: 40px;
+    border-top: 1px solid #e0e0e0; /* Легкая граница для четкости */
+}
+/* Убираем любые тени или границы, которые могут создавать видимость разделения */
+
+/* Если вы хотите оставить блоки выделенными, можно добавить легкую рамку вместо фона */
+
+@media (max-width: 900px) {
+    .payment-grid, .delivery-grid { grid-template-columns: 1fr; }
+    .page-wrapper { padding: 10px; }
+}

@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Главная — Одна Цена</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Подключаем внешний CSS -->
+  <link rel="stylesheet" href="css/s1.css">
+  <link rel="stylesheet" href="css/catalog.css">
+  <link rel="stylesheet" href="css/shop.css">
+  <link rel="stylesheet" href="css/product.css">
+</head>
+<body>
+<!-- Верхний бар (уменьшенный, с левым краем) -->
+<div class="top-links-bar">
+  <div class="container">
+    <div class="top-left-group">
+      <div class="location" id="openCityModal" style="cursor: pointer;">
+        <svg class="geo-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="10" stroke="#5a6472" stroke-width="2"/>
+          <path d="M15 9L9 15M15 9H10M15 9V14" stroke="#5a6472" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="city-text" id="currentCity">Минск</span>
+      </div>
+      <div class="separator"></div>
+      <span><a href="shops.html" >Адреса магазинов</a></span>
+      <span ><a href="works.html" >Работа у нас</a></span>
+    </div>
+
+    <div class="top-right-group">
+      <span><a href="stocks.html" >Акции</a></span>
+      <span><a href="oplata.html" >Доставка и оплата</a></span>
+      <span><a href="contacts.html" >Контакты</a></span>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="main-content">
+  <div class="container">
+
+    <div class="search-section">
+      <div class="logo-before-catalog">
+        <a href ="index.html " ><img src="img/логотип.png" alt="Форвард" class="site-logo"></a>
+      </div>
+      <div class="separator1"></div>
+
+       <div class="catalog-wrapper"> <button class="catalog-badge" id="catalogBtn">
+        <i class="fas fa-bars"></i> Каталог
+        </button>
+
+      </div>
+      <div class="search-box">
+        <input type="text" id="main-search-input" placeholder="Начните поиск товара" autocomplete="off">
+        <button id="search-submit-btn"><i class="fas fa-search"></i></button>
+
+        <div id="search-results-ajax" class="search-results-dropdown"></div>
+      </div>
+
+
+      <!-- Блок: Войти, Избранное, Корзина -->
+      <div class="user-actions">
+
+        <div class="user-item">
+          <a href="login.html" style="text-decoration: none; color: inherit; display: flex; align-items: center;flex-direction: column;gap:6px;">
+          <i class="far fa-user"></i>
+          <span>Войти </span>
+          </a>
+        </div>
+
+        <div class="user-item wishlist-icon-wrapper" style="position: relative;">
+          <a href="wishlist.html" style="text-decoration: none; color: inherit; display: flex; align-items: center;" class="wishlist-link">
+            <i class="far fa-heart"></i>
+            <span>Избранное</span>
+            <span id="wishlist-badge" class="badge" style="display: none;">0</span>
+          </a>
+
+          <div id="wishlist-dropdown-content" class="dropdown-content">
+          </div>
+        </div>
+        <div class="user-item">
+          <div class="cart-wrapper">
+            <div class="header-cart">
+              <a href="cart.html">
+              <div class="cart-icon-container">
+                <svg width="20" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart">
+                  <circle cx="9" cy="21" r="1"></circle>
+                  <circle cx="20" cy="21" r="1"></circle>
+                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+                <span id="cart-badge" class="cart-badge">0</span>
+              </div>
+              <span>Корзина </span>
+              </a>
+            </div>
+
+            <div id="cart-dropdown" class="cart-dropdown">
+              <div id="dropdown-content">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="toast-notification" class="toast"></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Категории -->
+<div class="nav-cats">
+  <div class="container">
+    <a href="shop.html?category=bytovaya-khimiya">Бытовая химия</a>
+    <a href="shop.html?category=galantereya">Галантерея</a>
+    <a href="shop.html?category=tsvety">Цветы</a>
+    <a href="shop.html?category=kantstovary">Канцтовары</a>
+    <a href="shop.html?category=krasota">Красота</a>
+    <a href="shop.html?category=odezhda">Одежда</a>
+    <a href="shop.html?category=posuda">Посуда</a>
+    <a href="shop.html?category=produkty">Продукты</a>
+    <a href="shop.html?category=sport">Спорт</a>
+    <a href="shop.html?category=detyam">Детям</a>
+    <a href="shop.html?category=dom">Дом</a>
+    <a href="shop.html?category=zhivotnym">Животным</a>
+    <a href="shop.html?category=sad">Сад</a>
+    <a href="shop.html?category=khobbi">Хобби</a>
+    <a href="shop.html?category=khoztovary">Хозтовары</a>
+  </div>
+</div>
+
+<!-- Основной контент -->
+<section class="promo-section container-fluid">
+  <div class="main-slider" id="main-slider">
+    <div class="slide active" data-bg="linear-gradient(90deg, #002d4d 60%, #17a2b8 60%)" data-theme="dark">
+      <div class="promo-wrapper xiaomi-style">
+        <div class="promo-text anim-up">
+          <p class="promo-category">Дозатор для мыла</p>
+          <h1 class="promo-title">Mi Automatic Foaming Soap Dispenser (Копия)</h1>
+          <div class="price-block">
+            <span class="p-price">1 480 ₽</span>
+            <span class="p-old-price">1 780 ₽</span>
+          </div>
+        </div>
+
+        <div class="center-feature anim-up">
+          <div class="feature-circle"><i class="fas fa-tint"></i></div>
+          <span>Точное дозирование</span>
+        </div>
+
+        <div class="p-img anim-up">
+          <img src="https://mishka-shop.com/upload/iblock/58c/58c2f0d9a6c4b18c642687a749363191.png" alt="Xiaomi Dispenser">
+        </div>
+
+        <div class="specs-box anim-up">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Xiaomi_logo_%282021-%29.svg" class="specs-logo">
+          <div class="spec-item"><span class="spec-val">320<small>мл</small></span><span class="spec-lab">Ёмкость</span></div>
+          <div class="spec-item"><span class="spec-val">50</span><span class="spec-lab">Дней</span></div>
+          <div class="spec-item"><span class="spec-val">400</span><span class="spec-lab">Циклов</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide" data-bg="linear-gradient(90deg, #002d4d 60%, #17a2b8 60%)" data-theme="dark">
+      <div class="promo-wrapper xiaomi-style">
+        <div class="promo-text anim-up">
+          <p class="promo-category">Дозатор для мыла</p>
+          <h1 class="promo-title">Mi Automatic Foaming Soap Dispenser (Копия)</h1>
+          <div class="price-block">
+            <span class="p-price">1 480 ₽</span>
+            <span class="p-old-price">1 780 ₽</span>
+          </div>
+        </div>
+
+        <div class="center-feature anim-up">
+          <div class="feature-circle"><i class="fas fa-tint"></i></div>
+          <span>Точное дозирование</span>
+        </div>
+
+        <div class="p-img anim-up">
+          <img src="https://mishka-shop.com/upload/iblock/58c/58c2f0d9a6c4b18c642687a749363191.png" alt="Xiaomi Dispenser">
+        </div>
+
+        <div class="specs-box anim-up">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Xiaomi_logo_%282021-%29.svg" class="specs-logo">
+          <div class="spec-item"><span class="spec-val">320<small>мл</small></span><span class="spec-lab">Ёмкость</span></div>
+          <div class="spec-item"><span class="spec-val">50</span><span class="spec-lab">Дней</span></div>
+          <div class="spec-item"><span class="spec-val">400</span><span class="spec-lab">Циклов</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slider-navigation-group">
+      <div class="slider-arrows">
+
+        <button class="control-btn next"><i class="fas fa-arrow-left"></i></button>
+        <button class="control-btn prev"><i class="fas fa-arrow-right"></i></button>
+      </div>
+      <div class="dots" id="main-dots"></div>
+    </div>
+  </div>
+
+  <div class="side-slider-container" id="side-container">
+    <div class="side-track">
+      <div class=" side-card active">
+        <button class="btn-add-wishlist" onclick="toggleWishlist(2)"><i class="far fa-heart"></i></button>
+        <a href="product.html?id=2" class="product-link">
+          <div class="product-img-container">
+            <img src="img/soap-citrus.jpg" alt="Мыло" onerror="this.src='nologo.png'">
+          </div>
+          <span class="product-name">Мыло жидкое "Цитрус" 500мл</span>
+        </a>
+        <div class="product-footer">
+          <span class="price">150 ₽</span>
+          <button class="btn-outline-green" onclick="addToCart(2)">В корзину</button>
+        </div>
+      </div>
+
+      <div class=" side-card">
+        <button class="btn-add-wishlist" onclick="toggleWishlist(3)"><i class="far fa-heart"></i></button>
+        <a href="product.html?id=3" class="product-link">
+          <div class="product-img-container">
+            <img src="img/gel-ocean.jpg" alt="Гель" onerror="this.src='nologo.png'">
+          </div>
+          <span class="product-name">Гель для душа "Океан" 250мл</span>
+        </a>
+        <div class="product-footer">
+          <span class="price">210 ₽</span>
+          <button class="btn-outline-green" onclick="addToCart(3)">В корзину</button>
+        </div>
+
+      </div>
+
+      <div class=" side-card">
+        <button class="btn-add-wishlist" onclick="toggleWishlist(4)"><i class="far fa-heart"></i></button>
+        <a href="product.html?id=4" class="product-link">
+          <div class="product-img-container">
+            <img src="img/shampoo-pro.jpg" alt="Шампунь" onerror="this.src='nologo.png'">
+          </div>
+          <span class="product-name">Шампунь Professional Care</span>
+        </a>
+        <div class="product-footer">
+          <span class="price">450 ₽</span>
+          <button class="btn-outline-green" onclick="addToCart(4)">В корзину</button>
+        </div>
+      </div>
+
+      <div class="side-card">
+        <button class="btn-add-wishlist" onclick="toggleWishlist(5)"><i class="far fa-heart"></i></button>
+        <a href="product.html?id=5" class="product-link">
+          <div class="product-img-container">
+            <img src="img/towel-white.jpg" alt="Полотенце" onerror="this.src='nologo.png'">
+          </div>
+          <span class="product-name">Полотенце махровое 50x70</span>
+        </a>
+        <div class="product-footer">
+          <span class="price">320 ₽</span>
+          <button class="btn-outline-green" onclick="addToCart(5)">В корзину</button>
+        </div>
+      </div>
+
+      <div class=" side-card">
+        <button class="btn-add-wishlist" onclick="toggleWishlist(6)"><i class="far fa-heart"></i></button>
+        <a href="product.html?id=6" class="product-link">
+          <div class="product-img-container">
+            <img src="img/sponge-set.jpg" alt="Губки" onerror="this.src='nologo.png'">
+          </div>
+          <span class="product-name">Набор губок для посуды (10шт)</span>
+        </a>
+        <div class="product-footer">
+          <span class="price">85 ₽</span>
+          <button class="btn-outline-green" onclick="addToCart(6)">В корзину</button>
+        </div>
+      </div>
+
+      <div class=" side-card">
+        <button class="btn-add-wishlist" onclick="toggleWishlist(7)"><i class="far fa-heart"></i></button>
+        <a href="product.html?id=7" class="product-link">
+          <div class="product-img-container">
+            <img src="img/cleaner-glass.jpg" alt="Спрей" onerror="this.src='nologo.png'">
+          </div>
+          <span class="product-name">Спрей для стекол и зеркал</span>
+        </a>
+        <div class="product-footer">
+          <span class="price">190 ₽</span>
+          <button class="btn-outline-green" onclick="addToCart(7)">В корзину</button>
+        </div>
+      </div>
+
+      <div class=" side-card">
+        <button class="btn-add-wishlist" onclick="toggleWishlist(8)"><i class="far fa-heart"></i></button>
+        <a href="product.html?id=8" class="product-link">
+          <div class="product-img-container">
+            <img src="img/air-freshener.jpg" alt="Освежитель" onerror="this.src='nologo.png'">
+          </div>
+          <span class="product-name">Освежитель воздуха "Лайм"</span>
+        </a>
+        <div class="product-footer">
+          <span class="price">130 ₽</span>
+          <button class="btn-outline-green" onclick="addToCart(8)">В корзину</button>
+        </div>
+      </div>
+
+      <div class=" side-card">
+        <button class="btn-add-wishlist" onclick="toggleWishlist(9)"><i class="far fa-heart"></i></button>
+        <a href="product.html?id=9" class="product-link">
+          <div class="product-img-container">
+            <img src="img/napkins-dry.jpg" alt="Салфетки" onerror="this.src='nologo.png'">
+          </div>
+          <span class="product-name">Салфетки бумажные 200шт</span>
+        </a>
+        <div class="product-footer">
+          <span class="price">110 ₽</span>
+          <button class="btn-outline-green" onclick="addToCart(9)">В корзину</button>
+        </div>
+      </div>
+
+      <div class=" side-card">
+        <button class="btn-add-wishlist" onclick="toggleWishlist(10)"><i class="far fa-heart"></i></button>
+        <a href="product.html?id=10" class="product-link">
+          <div class="product-img-container">
+            <img src="img/dish-soap.jpg" alt="Средство" onerror="this.src='nologo.png'">
+          </div>
+          <span class="product-name">Средство для посуды 1л</span>
+        </a>
+        <div class="product-footer">
+          <span class="price">240 ₽</span>
+          <button class="btn-outline-green" onclick="addToCart(10)">В корзину</button>
+        </div>
+      </div>
+
+      <div class=" side-card">
+        <button class="btn-add-wishlist" onclick="toggleWishlist(11)"><i class="far fa-heart"></i></button>
+        <a href="product.html?id=11" class="product-link">
+          <div class="product-img-container">
+            <img src="img/hand-cream.jpg" alt="Крем" onerror="this.src='nologo.png'">
+          </div>
+          <span class="product-name">Крем для рук увлажняющий</span>
+        </a>
+        <div class="product-footer">
+          <span class="price">175 ₽</span>
+          <button class="btn-outline-green" onclick="addToCart(11)">В корзину</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-dots-wrapper">
+      <div class="side-dots" id="side-dots"></div>
+    </div>
+  </div>
+</section>
+<div class="product-grid">
+
+  <div class="product-card">
+    <button class="btn-add-wishlist" onclick="toggleWishlist(1)"><i class="far fa-heart"></i></button>
+    <a href="product.html?id=1" class="product-link">
+      <div class="product-img-container">
+        <img src="img/gel.jpg" alt="Гель" onerror="this.src='nologo.png'">
+      </div>
+      <span class="product-name">Гель для стирки Green FORW-0001</span>
+    </a>
+    <div class="product-footer">
+      <span class="price">850 ₽</span>
+      <button class="btn-outline-green" onclick="addToCart(1)">В корзину</button>
+    </div>
+  </div>
+
+  <div class="product-card">
+    <button class="btn-add-wishlist" onclick="toggleWishlist(2)"><i class="far fa-heart"></i></button>
+    <a href="product.html?id=2" class="product-link">
+      <div class="product-img-container">
+        <img src="img/soap-citrus.jpg" alt="Мыло" onerror="this.src='nologo.png'">
+      </div>
+      <span class="product-name">Мыло жидкое "Цитрус" 500мл</span>
+    </a>
+    <div class="product-footer">
+      <span class="price">150 ₽</span>
+      <button class="btn-outline-green" onclick="addToCart(2)">В корзину</button>
+    </div>
+  </div>
+
+  <div class="product-card">
+    <button class="btn-add-wishlist" onclick="toggleWishlist(9)"><i class="far fa-heart"></i></button>
+    <a href="product.html?id=9" class="product-link">
+      <div class="product-img-container">
+        <img src="img/umbrella.jpg" alt="Зонт" onerror="this.src='nologo.png'">
+      </div>
+      <span class="product-name">Зонт-автомат черный Classic</span>
+    </a>
+    <div class="product-footer">
+      <span class="price">1200 ₽</span>
+      <button class="btn-outline-green" onclick="addToCart(9)">В корзину</button>
+    </div>
+  </div>
+
+  <div class="product-card">
+    <button class="btn-add-wishlist" onclick="toggleWishlist(18)"><i class="far fa-heart"></i></button>
+    <a href="product.html?id=18" class="product-link">
+      <div class="product-img-container">
+        <img src="img/pens.jpg" alt="Ручки" onerror="this.src='nologo.png'">
+      </div>
+      <span class="product-name">Набор гелевых ручек 12 цветов</span>
+    </a>
+    <div class="product-footer">
+      <span class="price">380 ₽</span>
+      <button class="btn-outline-green" onclick="addToCart(18)">В корзину</button>
+    </div>
+  </div>
+
+  <div class="product-card">
+    <button class="btn-add-wishlist" onclick="toggleWishlist(25)"><i class="far fa-heart"></i></button>
+    <a href="product.html?id=25" class="product-link">
+      <div class="product-img-container">
+        <img src="img/mug.jpg" alt="Кружка" onerror="this.src='nologo.png'">
+      </div>
+      <span class="product-name">Кружка керамическая 330мл</span>
+    </a>
+    <div class="product-footer">
+      <span class="price">190 ₽</span>
+      <button class="btn-outline-green" onclick="addToCart(25)">В корзину</button>
+    </div>
+  </div>
+
+  <div class="product-card">
+    <button class="btn-add-wishlist" onclick="toggleWishlist(33)"><i class="far fa-heart"></i></button>
+    <a href="product.html?id=33" class="product-link">
+      <div class="product-img-container">
+        <img src="img/drink.jpg" alt="Лимонад" onerror="this.src='nologo.png'">
+      </div>
+      <span class="product-name">Лимонад "Тайга" 0.5л</span>
+    </a>
+    <div class="product-footer">
+      <span class="price">65 ₽</span>
+      <button class="btn-outline-green" onclick="addToCart(33)">В корзину</button>
+    </div>
+  </div>
+
+  <div class="product-card">
+    <button class="btn-add-wishlist" onclick="toggleWishlist(34)"><i class="far fa-heart"></i></button>
+    <a href="product.html?id=34" class="product-link">
+      <div class="product-img-container">
+        <img src="img/choco.jpg" alt="Шоколад" onerror="this.src='nologo.png'">
+      </div>
+      <span class="product-name">Шоколад молочный с фундуком</span>
+    </a>
+    <div class="product-footer">
+      <span class="price">95 ₽</span>
+      <button class="btn-outline-green" onclick="addToCart(34)">В корзину</button>
+    </div>
+  </div>
+
+  <div class="product-card">
+    <button class="btn-add-wishlist" onclick="toggleWishlist(41)"><i class="far fa-heart"></i></button>
+    <a href="product.html?id=41" class="product-link">
+      <div class="product-img-container">
+        <img src="img/tshirt-m.jpg" alt="Футболка" onerror="this.src='nologo.png'">
+      </div>
+      <span class="product-name">Футболка мужская Basic (White)</span>
+    </a>
+    <div class="product-footer">
+      <span class="price">600 ₽</span>
+      <button class="btn-outline-green" onclick="addToCart(41)">В корзину</button>
+    </div>
+  </div>
+
+  <div class="product-card">
+    <button class="btn-add-wishlist" onclick="toggleWishlist(48)"><i class="far fa-heart"></i></button>
+    <a href="product.html?id=48" class="product-link">
+      <div class="product-img-container">
+        <img src="img/shampoo.jpg" alt="Шампунь" onerror="this.src='nologo.png'">
+      </div>
+      <span class="product-name">Шампунь Volume Up 400мл</span>
+    </a>
+    <div class="product-footer">
+      <span class="price">380 ₽</span>
+      <button class="btn-outline-green" onclick="addToCart(48)">В корзину</button>
+    </div>
+  </div>
+
+  <div class="product-card">
+    <button class="btn-add-wishlist" onclick="toggleWishlist(60)"><i class="far fa-heart"></i></button>
+    <a href="product.html?id=60" class="product-link">
+      <div class="product-img-container">
+        <img src="img/candle.jpg" alt="Свеча" onerror="this.src='nologo.png'">
+      </div>
+      <span class="product-name">Свеча ароматическая "Уют"</span>
+    </a>
+    <div class="product-footer">
+      <span class="price">350 ₽</span>
+      <button class="btn-outline-green" onclick="addToCart(60)">В корзину</button>
+    </div>
+  </div>
+
+  <div class="product-card">
+    <button class="btn-add-wishlist" onclick="toggleWishlist(65)"><i class="far fa-heart"></i></button>
+    <a href="product.html?id=65" class="product-link">
+      <div class="product-img-container">
+        <img src="img/hammer.jpg" alt="Молоток" onerror="this.src='nologo.png'">
+      </div>
+      <span class="product-name">Молоток-гвоздодер 500г</span>
+    </a>
+    <div class="product-footer">
+      <span class="price">680 ₽</span>
+      <button class="btn-outline-green" onclick="addToCart(65)">В корзину</button>
+    </div>
+  </div>
+
+  <div class="product-card">
+    <button class="btn-add-wishlist" onclick="toggleWishlist(72)"><i class="far fa-heart"></i></button>
+    <a href="product.html?id=72" class="product-link">
+      <div class="product-img-container">
+        <img src="img/lego.jpg" alt="Конструктор" onerror="this.src='nologo.png'">
+      </div>
+      <span class="product-name">Конструктор "Город" 500 деталей</span>
+    </a>
+    <div class="product-footer">
+      <span class="price">2400 ₽</span>
+      <button class="btn-outline-green" onclick="addToCart(72)">В корзину</button>
+    </div>
+  </div>
+
+
+
+  <div class="product-card">
+    <button class="btn-add-wishlist" onclick="toggleWishlist(88)"><i class="far fa-heart"></i></button>
+    <a href="product.html?id=88" class="product-link">
+      <div class="product-img-container">
+        <img src="img/cat-food.jpg" alt="Корм" onerror="this.src='nologo.png'">
+      </div>
+      <span class="product-name">Сухой корм для кошек 2кг</span>
+    </a>
+    <div class="product-footer">
+      <span class="price">850 ₽</span>
+      <button class="btn-outline-green" onclick="addToCart(88)">В корзину</button>
+    </div>
+  </div>
+
+  <div class="product-card">
+    <button class="btn-add-wishlist" onclick="toggleWishlist(12)"><i class="far fa-heart"></i></button>
+    <a href="product.html?id=12" class="product-link">
+      <div class="product-img-container">
+        <img src="img/shopper.jpg" alt="Сумка" onerror="this.src='nologo.png'">
+      </div>
+      <span class="product-name">Сумка-шоппер Canvas Green</span>
+    </a>
+    <div class="product-footer">
+      <span class="price">450 ₽</span>
+      <button class="btn-outline-green" onclick="addToCart(12)">В корзину</button>
+    </div>
+  </div>
+
+  <div class="product-card">
+    <button class="btn-add-wishlist" onclick="toggleWishlist(22)"><i class="far fa-heart"></i></button>
+    <a href="product.html?id=22" class="product-link">
+      <div class="product-img-container">
+        <img src="img/markers.jpg" alt="Маркеры" onerror="this.src='nologo.png'">
+      </div>
+      <span class="product-name">Маркеры для скетчинга 36цв</span>
+    </a>
+    <div class="product-footer">
+      <span class="price">890 ₽</span>
+      <button class="btn-outline-green" onclick="addToCart(22)">В корзину</button>
+    </div>
+  </div>
+
+  <div class="product-card">
+    <button class="btn-add-wishlist" onclick="toggleWishlist(27)"  ><i class="far fa-heart"></i></button>
+    <a href="product.html?id=27" class="product-link">
+      <div class="product-img-container">
+        <img src="img/pan.jpg" alt="Сковорода" onerror="this.src='nologo.png'">
+      </div>
+      <span class="product-name">Сковорода Granite 26см</span>
+    </a>
+    <div class="product-footer">
+      <span class="price">1850 ₽</span>
+      <button class="btn-outline-green" onclick="addToCart(27)">В корзину</button>
+    </div>
+  </div>
+
+  <div class="product-card">
+    <button class="btn-add-wishlist" onclick="toggleWishlist(40)"><i class="far fa-heart"></i></button>
+    <a href="product.html?id=40" class="product-link">
+      <div class="product-img-container">
+        <img src="img/pasta.jpg" alt="Паста" onerror="this.src='nologo.png'">
+      </div>
+      <span class="product-name">Спагетти из твердых сортов 450г</span>
+    </a>
+    <div class="product-footer">
+      <span class="price">85 ₽</span>
+      <button class="btn-outline-green" onclick="addToCart(40)">В корзину</button>
+    </div>
+  </div>
+
+  <div class="product-card">
+    <button class="btn-add-wishlist" onclick="toggleWishlist(100)"><i class="far fa-heart"></i></button>
+    <a href="product.html?id=100" class="product-link">
+      <div class="product-img-container">
+        <img src="img/dot.jpg" alt="Блокнот" onerror="this.src='nologo.png'">
+      </div>
+      <span class="product-name">Блокнот в точку (Bullet Journal)</span>
+    </a>
+    <div class="product-footer">
+      <span class="price">320 ₽</span>
+      <button class="btn-outline-green" onclick="addToCart(100)">В корзину</button>
+    </div>
+  </div>
+</div>
+<!-- футер-->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-contact">
+        <p>По любым вопросам</p>
+        <div class="footer-phone-wrap">
+        <a href="tel:375445555555" class="footer-phone">374 44 55 555 55</a>
+        <div class="contact-icons">
+          <a href="#" class="icon-tg"><i class="fab fa-telegram-plane"></i></a>
+          <a href="#" class="icon-wa"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      </div>
+
+      <div class="footer-subscribe">
+        <span>Присоединяйтесь к нам:</span>
+        <div class="subscribe-box">
+          <input type="email" placeholder="Введите почту чтоб получать рассылки">
+          <button class="btn-subscribe" onclick="handleSubscribe()">Подписаться</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-main">
+      <div class="footer-col">
+        <a href="shops.html">Телефоны и адреса магазинов</a>
+        <a href="service.html">Сервисные центры</a>
+        <a href="kak-oformit.html">Как оформить заказ</a>
+        <a href="works.html">Вакансии</a>
+        <a href="contacts.html">Контакты</a>
+      </div>
+      <div class="footer-col">
+        <a href="vozvrat.html">Возврат товаров</a>
+        <a href="privacy.html">Политика конфиденциальности</a>
+        <a href="help.html">Помощь</a>
+        <a href="postav.html">Поставщикам</a>
+        <a href="partners.html">Партнеры и программы лояльности</a>
+      </div>
+      <div class="footer-col">
+        <a href="garanty.html">Гарантия на товары</a>
+        <a href="polzovatel.html">Пользовательское соглашение</a>
+        <a href="samovyvoz.html">Самовывоз</a>
+        <a href="about-company.html">О компании</a>
+        <a href="pravs.html">Правила программы лояльности</a>
+      </div>
+      <div class="footer-col social-col">
+        <p>Одна цена в соц. сетях</p>
+        <div class="social-icons">
+          <a href="#" class="soc-vk"><i class="fab fa-vk"></i></a>
+          <a href="#" class="soc-tg"><i class="fab fa-telegram"></i></a>
+          <a href="#" class="soc-ok"><i class="fab fa-odnoklassniki"></i></a>
+          <a href="#" class="soc-yt"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p class="email-label">E-mail</p>
+        <a href="mailto:info@horosho-cena.ru" class="footer-email">info@odna-cena.ru</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© Хорошая Цена, 2026 Все права защищены</p>
+      <p>Есть вопрос? Отправьте его нам с помощью <a href="#">формы обратной связи</a></p>
+    </div>
+  </div>
+
+  <div class="scroll-top">
+    <i class="fas fa-chevron-up"></i>
+  </div>
+</footer>
+<div class="catalog-menu" id="catalogMenu">
+
+    <div class="menu-header">
+      <div class="menu-logo">
+        <img src="img/логотип.png" alt="логотип">
+      </div>
+      <div class="search-inside-menu">
+        <button class="search-icon"><i class="fas fa-search"></i></button>
+        <input type="text" id="catalogSearchInput" placeholder="Начните поиск товара">
+      </div>
+    </div>
+  <div class="catalog-lower-section">
+  <div class="catalog-sidebar-left">
+
+      <ul class="main-categories" id="mainCategories">
+      </ul>
+
+      <div class="menu-footer">
+        <div class="footer-links">
+          <a href="stocks.html">Акции</a>
+          <a href="oplata.html">Доставка и оплата</a>
+          <a href="contacts.html">Контакты</a>
+          <a href="shops.html">Адреса магазинов</a>
+          <a href="works.html">Работа у нас</a>
+        </div>
+        <div class="separator2"></div>
+        <div class="footer-user-actions">
+          <a href="login.html" class="f-user-item"><i class="far fa-user"></i> Войти
+</a>
+          <a href="wishlist.html" class="f-user-item"><i class="far fa-heart"></i> Избранное
+            <span id="wishlist-badge-menu" class="badge-count">0</span></a>
+          <a href="cart.html" class="f-user-item"><i class="fas fa-shopping-cart"></i> Корзина
+            <span id="cart-badge-menu" class="badge-count highlight">0</span></a>
+          <div class="f-user-item" id="cityTrigger">
+            <svg class="geo-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="10" stroke="#5a6472" stroke-width="2"/>
+              <path d="M15 9L9 15M15 9H10M15 9V14" stroke="#5a6472" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg><span class="current-city-value" >Минск</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sub-categories" id="subContainer">
+      <ul id="submenuList"></ul>
+    </div>
+  </div>
+
+
+
+  <button class="close-menu" id="closeMenu">&times;</button>
+</div>
+<div id="cityModal" class="modal-overlay">
+  <div class="modal-content">
+    <h3>Выберите город</h3>
+    <div class="city-list">
+      <div class="city-col">
+        <span class="city-variant">Минск</span>
+        <span class="city-variant">Гомель</span>
+        <span class="city-variant">Брест</span>
+      </div>
+      <div class="city-col">
+        <span class="city-variant">Жлобин</span>
+        <span class="city-variant">Могилев</span>
+        <span class="city-variant">Витебск</span>
+      </div>
+    </div>
+    <div class="modal-search">
+      <label>Ваш город</label>
+      <input type="text" id="citySearchInput" placeholder="Найти город">
+      <button class="btn-search">Поиск</button>
+    </div>
+    <button id="closeModal" class="btn-close">Отменить выбор</button>
+  </div>
+</div>
+<div id="subscribe-loader" class="sub-overlay" style="display: none;">
+  <div class="sub-loader-box">
+    <div class="sub-spinner"></div>
+    <p>Обработка подписки...</p>
+  </div>
+</div>
+
+<div id="subscribe-status-modal" class="sub-overlay" style="display: none;">
+  <div class="sub-modal-card">
+    <div id="sub-modal-icon"></div>
+    <h3 id="sub-modal-title"></h3>
+    <p id="sub-modal-text"></p>
+    <button onclick="closeSubModal()" class="sub-modal-btn">Понятно</button>
+  </div>
+</div>
+<!-- Подключаем внешний JavaScript -->
+<script src="js/script.js"></script>
+<!-- Подключаем внешний JavaScript -->
+<script src="js/catalog.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/wishlist.js"></script>
+<script src="js/shop.js"></script>
+</body>
+</html>

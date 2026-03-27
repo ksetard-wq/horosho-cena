@@ -1,0 +1,100 @@
+.all-white{
+    background-color: white;
+}
+.promo-detail-page {
+
+    margin: 0 auto;
+    padding: 20px;
+
+    background-color: #ffffff;
+}
+
+/* Хлебные крошки */
+.breadcrumbs {
+    padding: 20px 40px;
+
+}
+.breadcrumbs a {  color: blue;         /* Цвет ссылки как на скрине */
+    text-decoration: none;  /* Убираем подчеркивание */
+    transition: color 0.2s;
+    opacity:0.5; }
+.breadcrumbs span { color: #999;  padding: 10px;}
+.breadcrumbs a:hover {
+    color: #49ef09; /* Цвет при наведении */
+}
+
+/* Заголовок страницы */
+.order-main-title {
+    font-size: 36px;
+    font-weight: 600;
+    color: #000;
+    padding: 20px 40px;
+}
+
+/* Флекс-контейнер для картинки и текста */
+.promo-flex-container {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+    padding: 20px 40px;
+}
+
+/* Ограничиваем ширину картинки */
+.promo-media {
+    flex: 0 0 450px;
+}
+
+.promo-media img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Стилизация текста */
+.promo-description {
+    flex: 1;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.promo-description p {
+    margin-bottom: 20px;
+}
+
+.promo-intro {
+    font-size: 18px;
+}
+
+.promo-important {
+    background-color: #fff;
+}
+
+.details-link {
+    display: inline-block;
+    color: #0066cc;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.details-link:hover {
+    text-decoration: underline;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 900px) {
+    .promo-flex-container {
+        flex-direction: column;
+    }
+
+    .promo-media {
+        flex: none;
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto 30px;
+    }
+
+    .page-title {
+        font-size: 28px;
+    }
+}

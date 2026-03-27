@@ -1,0 +1,243 @@
+body, .vacancy-page-container {
+    background-color: #ffffff !important; /* Делаем фон чисто белым */
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+}
+.main-layout {
+    display: flex;
+    flex-direction: row-reverse; /* Меняем местами, если в HTML форма шла первой */
+    gap: 40px;
+    align-items: flex-start;
+}
+.breadcrumb {
+    text-align: left;
+    margin: 25px 0;
+    font-size: 14px;
+}
+
+.breadcrumb a {
+    color: #0066cc; /* Синий цвет */
+    text-decoration: none;
+    opacity: 0.8;
+    transition: all 0.5s ease;
+}
+.breadcrumb span { color: #999;  padding: 10px;}
+.breadcrumb a:hover {
+    color: #49ef09;         /* Цвет при наведении */
+
+}
+h1{
+    margin: 20px 0;
+}
+.description{
+    margin:20px 0;
+}
+/* СТИЛИ ФОРМЫ (КАК НА СКРИНШОТЕ) */
+.sidebar-form {
+    flex: 0 0 500px;
+}
+
+.form-card {
+    padding: 30px;
+    background: #fff;
+    border-radius: 10px;
+  font-weight: 400;
+    opacity:0.8;
+}
+
+.form-card h3 {
+    font-size: 14px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px; /* Скругленные боксы */
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+}
+
+
+.input-group textarea:focus {
+    border-color: #8cc63f; /* Зеленая рамка при нажатии */
+    box-shadow: 0 0 5px rgba(118, 225, 46, 0.3);
+}
+.input-group input:focus {
+    border-color: #8cc63f; /* Зеленая рамка при нажатии */
+    box-shadow: 0 0 5px rgba(118, 225, 46, 0.3);
+}
+.custom-checkbox-input {
+    position: absolute;
+    opacity: 0;
+}
+
+.custom-checkbox-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 25px;
+    user-select: none;
+}
+
+.checkbox-box {
+    width: 28px; /* Еще чуть больше для удобства */
+    height: 28px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    margin-right: 15px;
+    position: relative;
+    transition: all 0.3s ease;
+    background: #fff;
+}
+
+/* Эффект при наведении на весь блок */
+.custom-checkbox-label:hover .checkbox-box {
+    border-color: #6cea1b;
+}
+
+/* СОСТОЯНИЕ: ГАЛОЧКА ПОСТАВЛЕНА */
+.custom-checkbox-input:checked ~ .custom-checkbox-label .checkbox-box {
+    background-color: #6cea1b;
+    border-color: #6cea1b;
+}
+
+/* АНИМАЦИЯ ГАЛОЧКИ */
+.checkbox-box::after {
+    content: "";
+    position: absolute;
+    left: 9px;
+    top: 4px;
+    width: 6px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg) scale(0); /* Сначала скрыта и уменьшена */
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.custom-checkbox-input:checked ~ .custom-checkbox-label .checkbox-box::after {
+    transform: rotate(45deg) scale(1); /* Плавно "выпрыгивает" */
+}
+.submit-btn {
+    width:120px;
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    background-color: #83e826; /* Изначально очень светлый/бледный цвет */
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+     /* Курсор "запрещено", пока нет галочки */
+    transition: all 0.4s ease;
+    opacity: 0.7;
+}
+
+/* КОГДА ГАЛОЧКА СТОИТ — КНОПКА СТАНОВИТСЯ ТЕМНЕЕ И АКТИВНЕЕ */
+.custom-checkbox-input:checked ~ .submit-btn {
+    background-color: #6cea1b; /* Насыщенный зеленый */
+    opacity: 1;
+    cursor: pointer;
+}
+.submit-btn:hover {
+    opacity:1;
+}
+
+/* СПИСОК ГОРОДОВ И АНИМАЦИЯ */
+.vacancy-list {
+    flex: 1;
+}
+
+.city-item {
+    border-bottom: 1px solid #eee;
+    border-top: 1px solid #eee;
+}
+
+.city-header {
+    padding: 20px 10px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    font-size: 20px;
+    transition: all 0.5s ease;
+}
+.city-header:hover{
+    background: #f8eeee;
+
+}
+.city-header.selected {
+    background: #f8eeee;
+    color: #6cea1b;
+    opacity: 0.8;
+}
+/* АНИМАЦИЯ КРЕСТИКА */
+.icon-toggle {
+    display: inline-block;
+    transition: transform 0.5s ease; /* Плавный поворот */
+    font-size: 24px;
+}
+
+.city-item.active .icon-toggle {
+    transform: rotate(180deg); /* Поворот на 180 градусов */
+    content: "×"; /* Можно заменить текст через JS */
+}
+
+/* ВНУТРЕННИЙ БЛОК ВАКАНСИИ */
+.city-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s ease;
+}
+
+.city-item.active .city-content {
+    max-height: 2000px;
+}
+
+.details-header {
+    background: #f9f9f9;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    color: #8cc63f;
+}
+.vacancy-info {
+    /* Подбор максимально похожего шрифта */
+    line-height: 1.6; /* Межстрочный интервал как на фото */
+    color: #333;
+    max-width: 800px; /* Чтобы текст не растягивался слишком сильно по ширине */
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 40px;
+}
+
+.vacancy-info h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 20px; /* Отступ под заголовком */
+}
+
+.vacancy-info p {
+    margin-bottom: 15px; /* Отступы между абзацами */
+}
+
+.vacancy-info ul {
+    list-style-type: disc;
+    margin-left: 40px; /* Сдвиг списка вправо */
+    margin-bottom: 25px;
+}
+
+.vacancy-info li {
+    margin-bottom: 8px; /* Расстояние между пунктами списка */
+}
+
+/* Оформление нижней части (адрес и телефон) */
+.vacancy-info p:last-of-type {
+    margin-top: 25px;
+}

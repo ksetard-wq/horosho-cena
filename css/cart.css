@@ -1,0 +1,842 @@
+.container {
+    width: 1600px; /* Можно увеличить до 1400px для еще большей ширины */
+    margin: 0 auto;
+
+    display: block; /* Убеждаемся, что блоки идут друг под другом */
+}
+/* Хлебные крошки */
+.breadcrumbs { font-size: 14px; margin: 20px 0; color: #007bff; }
+.breadcrumbs span { color: #999; }
+body{
+    background: white;
+}
+h1 { font-size: 42px; margin: 0 0 40px; }
+
+/* Блок пустой корзины (по умолчанию скрыт) */
+.empty-cart-banner {
+    background-color: #eef7e1; /* Светло-зеленый фон */
+    padding: 20px 30px;
+    border-radius: 4px;
+    margin-bottom: 30px;
+    font-size: 16px;
+}
+
+.btn-green {
+    background-color: #69c300; /* Ярко-зеленый */
+    color: #ffffff;
+    padding: 12px 25px;
+    border-radius: 6px;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 600;
+}
+
+/* Таблица товаров */
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+.cart-table th {
+    text-align: left;
+    padding: 15px;
+
+    color: #999;
+    font-weight: 500;
+}
+
+.cart-table td {
+    padding: 20px 15px;
+
+}
+
+.product-info { display: flex; align-items: center; gap: 20px; }
+.product-img { width: 80px; height: 80px; background: #f9f9f9; border-radius: 4px; }
+
+/* Кнопки */
+
+
+.remove-btn { color: #ccc; cursor: pointer; transition: 0.2s; }
+.remove-btn:hover { color: #ff4d4d; }
+.breadcrumbs a{
+    opacity: 0.8;
+}
+.breadcrumbs a:hover{
+    color: #6cea1b ;
+}
+.empty-cart-banner {
+    background-color: #eef7e1;
+    padding: 20px 30px;
+    border-radius: 4px;
+    margin-bottom: 30px;
+}
+
+/* Кнопки */
+.btn-green, .btn-green-submit {
+    background-color: #69c300;
+    color: #ffffff;
+    border: none;
+    padding: 15px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 40px;
+    font-size: 14px;
+    transition: all 0.5s ease;
+}
+.btn-green:hover {
+    background-color: #63b306;
+}
+
+.btn-secondary {
+    background: #f5f5f5;
+    border: 1px solid #dddddd;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-danger {
+    background: #fff0f0;
+    border: 1px solid #ffcccc;
+    color: #cc0000;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.cart-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* Таблица и карточки */
+.card {
+    border: 1px solid #e8ecef;
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 30px;
+}
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.cart-table th {
+    text-align: left;
+    color: #999999;
+    font-weight: 500;
+    border-bottom: 1px solid #eeeeee;
+    padding-bottom: 10px;
+}
+.cart-table td {
+    padding: 15px 0;
+    border-bottom: 1px solid #f9f9f9;
+}
+
+/* Управление количеством */
+.qty-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.qty-control button {
+    background: #f5f5f5;
+    border: 1px solid #dddddd;
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Форма */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
+}
+.form-group label {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #e8ecef;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.order-total-block {
+    text-align: right;
+    margin-top: 20px;
+}
+.order-total-block p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Анимации */
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    opacity: 0; /* По умолчанию скрыто */
+    animation: fadeInUp 0.5s ease-out forwards; /* Анимация появления */
+}
+
+/* Задержки для разных элементов, чтобы они появлялись по очереди */
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.order-summary-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 400px;
+    background: #fff;
+}
+
+.delivery-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* Стилизация выпадающего списка */
+.address-select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #69c300; /* Зеленая рамка как на макете */
+    border-radius: 4px;
+    margin-top: 8px;
+    background-color: #fff;
+    outline: none;
+}
+
+.hidden-block {
+    display: none;
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.btn-order-confirm {
+    width: 100%;
+    background-color: #69c300;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+}
+/* Контейнер-сетка для корзины */
+.cart-main-layout {
+    display: flex;
+    flex-direction: row-reverse; /* Разворачивает блоки: заказ станет слева, таблица справа */
+    gap: 30px;
+    align-items: flex-start;
+}
+
+/* Настройка левой колонки (Заказ) */
+.order-checkout-container {
+    flex: 0 0 400px; /* Фиксированная ширина блока заказа */
+    position: sticky; /* Блок будет "плыть" за пользователем при скролле */
+    top: 20px;
+}
+
+/* Настройка правой колонки (Таблица) */
+.cart-table-container {
+    flex: 1; /* Занимает всё оставшееся пространство */
+}
+
+/* ОГРАНИЧЕНИЕ КАРТИНКИ ТОВАРА */
+.cart-product-img {
+    width: 80px;      /* Ограничиваем ширину */
+    height: 80px;     /* Ограничиваем высоту */
+    object-fit: contain; /* Картинка не растягивается, а вписывается */
+    background: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+/* Чтобы в таблице всё стояло ровно */
+.cart-table td {
+    vertical-align: middle;
+}
+/* Основной макет корзины */
+.cart-page-layout {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+.cart-left-column { flex: 1; }
+.cart-right-column { width: 600px; position: sticky; top: 20px; }
+
+/* Настройка таблицы товаров */
+.cart-table { width: 100%; border-collapse: collapse; }
+.cart-table th { color: #888; font-weight: 400; padding: 15px; border-bottom: 1px solid #eee; text-align: left; }
+.cart-table td { padding: 20px 15px; border-bottom: 1px solid #f9f9f9; vertical-align: middle; }
+
+/* Фото товара в таблице */
+.product-info-cell { display: flex; align-items: center; gap: 20px; }
+.cart-product-img { width: 80px; height: 80px; object-fit: contain; }
+.payment-policy-text {
+    font-size: 13px;        /* Уменьшенный размер текста */
+        /* Межстрочный интервал для читабельности */
+    color: #333;            /* Цвет текста */
+    margin-top: 20px;       /* Отступ сверху от блока оплаты */
+    margin-bottom: 20px;    /* Отступ снизу до кнопки */
+    max-width: 100%;        /* Ограничение ширины */
+}
+
+.payment-policy-text a {
+    color: #69c300;         /* Зеленый цвет для ссылки privacy policy */
+    text-decoration: none;
+}
+
+.payment-policy-text a:hover {
+    color: #3f6a2b;
+}
+/* Кнопки +/- для количества товаров */
+.qty-input-wrapper {
+    display: flex;
+    align-items: center;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    width: fit-content;
+}
+.qty-btn { background: none; border: none; width: 60px;height:35px; cursor: pointer; color: #69c300; }
+.qty-val { width: 30px; text-align: center; border: none; }
+
+/* Стилизация радиокнопок */
+/* Прячем стандартный кружок */
+/* Основной контейнер варианта */
+.payment-option {
+    margin-bottom: 15px;
+}
+
+/* Скрытый по умолчанию блок с подсказкой */
+.payment-hint-expand {
+    display: grid;
+    grid-template-rows: 0fr; /* Техника для плавного выдвижения */
+    transition: grid-template-rows 0.4s ease, opacity 0.3s ease;
+    opacity: 0;
+
+    overflow: hidden;
+}
+
+.payment-hint-expand > div,
+.payment-hint-expand > p,
+.payment-hint-expand > img {
+    min-height: 0;
+}
+
+/* Когда радиокнопка внутри нажата — выдвигаем блок */
+.payment-option:has(input:checked) .payment-hint-expand {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    margin-top: 10px;
+}
+
+/* Стили самого кружка (увеличенного) */
+.custom-radio-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.custom-radio-container input {
+    display: none; /* Прячем стандартный кружок */
+}
+
+/* Стили кружка: Зеленая обводка, белый внутри */
+.radio-checkmark {
+    width: 22px;
+    height: 22px;
+    border: 2px solid #ddd; /* Серый в обычном состоянии */
+    border-radius: 50%;
+    margin-right: 12px;
+    display: inline-block;
+    background-color: #ffffff; /* Всегда белый внутри */
+    transition: border-color 0.3s ease;
+    position: relative;
+    vertical-align: middle;
+}
+
+/* При выборе — только обводка становится зеленой */
+input:checked + .radio-checkmark {
+    border-color: #69c300;
+}
+
+/* Если нужна точка внутри (маленькая), оставьте этот код.
+   Если нужен полностью пустой белый круг — удалите блок ниже */
+input:checked + .radio-checkmark::after {
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #69c300; /* Маленькая зеленая точка в центре */
+}
+
+/* Картинка, которая видна всегда */
+.pay-logos-static {
+    display: block;
+    margin: 10px 0 0 20px;
+    width: 150px; /* Размер как на макете */
+}
+
+/* Анимация только для текста */
+.payment-hint-expand {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.4s ease, opacity 0.3s ease;
+    opacity: 0;
+
+    overflow: hidden;
+}
+
+.payment-option:has(input:checked) .payment-hint-expand {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    margin-top: 5px;
+}
+
+.payment-hint {
+    min-height: 0;
+    margin: 0;
+    font-size: 13px;
+    color: black;
+}
+/* СТЙЛИЗАЦИЯ ЧЕКБОКСОВ С ГАЛОЧКОЙ (см. макет справа) */
+.custom-check-row { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 15px; font-size: 14px; }
+.check-hidden { opacity: 0; position: absolute; }
+.check-label {
+    width: 18px; height: 18px;
+    border: 1px solid #eee; border-radius: 4px;
+    background: #fff; position: relative; cursor: pointer;
+    margin-top: 2px;
+}
+.check-hidden:checked + .check-label { background: #69c300; border-color: #69c300; }
+.check-hidden:checked + .check-label:after {
+    content: '✔'; position: absolute;
+    top: 0px; left: 2px; color: #fff; font-size: 14px;
+}
+/* Зеленая кнопка как на макете */
+.btn-confirm-order, .btn-promo {
+    background-color: #69c300;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 15px;
+    width: 100%;
+    font-weight: bold;
+    cursor: pointer;
+}
+.btn-confirm-order:hover{
+    background-color: #58a200;
+}
+    /* Строки в блоке "Ваш заказ" */
+.summary-item-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #555;
+    margin: 8px 0;
+
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+
+}
+
+.total-line {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+
+    margin-top: 10px;
+}
+.promo-block .promo-wrapper {
+    display: flex;         /* Включаем гибкую разметку для выстраивания в ряд */
+    gap: 10px;             /* Расстояние между полем и кнопкой */
+    align-items: center;   /* Выравнивание по центру по вертикали */
+    max-width: 400px;
+    margin: 20px 0;
+
+    /* Ограничение общей ширины блока (по желанию) */
+}
+
+
+.promo-input-field {
+   flex:1;         /* Поле ввода занимает всё свободное место */
+    height: 45px;          /* Фиксированная высота для симметрии */
+    padding: 0 15px;
+    border: 1px solid #e8ecef;
+    border-radius: 8px;    /* Скругление углов */
+    outline: none;
+    box-sizing: border-box
+}
+.promo-input-field:focus {
+    border-color: #3edd25;
+}
+
+.btn-promo-apply {
+    width:150px;
+    height: 45px;          /* Высота должна совпадать с высотой input */
+    padding: 0 25px;
+    background-color: #69c300; /* Ваш фирменный зеленый цвет */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    white-space: nowrap;   /* Запрет переноса текста в кнопке */
+    transition: background 0.3s ease;
+}
+
+.btn-promo-apply:hover {
+    background-color: #58a200; /* Затемнение при наведении */
+}
+/* Радиокнопки оплаты и доставки */
+.delivery-radios label, .payment-methods label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.payment-hint {
+    font-size: 12px;
+    color: #888;
+    margin: 5px 0 15px 25px;
+}
+
+.pay-logos {
+    width: 100%;
+    max-width: 200px;
+    margin-top: 10px;
+}
+/* Основной контейнер формы (без обводки) */
+.checkout-form-container {
+    background: #fff;
+    padding: 0; /* Убираем внутренние отступы, если они были */
+    margin-bottom: 30px;
+    border: none; /* Убеждаемся, что обводки нет */
+    box-shadow: none; /* Убираем тень, если она была */
+}
+
+/* Контейнер для расположения трех полей в одну линию */
+.form-inputs-row {
+    display: flex; /* Выстраиваем элементы в ряд */
+    gap: 20px;     /* Расстояние между полями */
+    margin-bottom: 25px;
+}
+
+/* Настройка каждого поля в ряду */
+.form-inputs-row .form-group {
+    flex: 1; /* Каждое поле занимает одинаковую часть ширины */
+    margin-bottom: 0; /* Убираем отступ снизу внутри ряда */
+}
+
+/* Стили для лейблов и инпутов (общие) */
+.form-group label {
+    display: block;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #e8ecef; /* Легкая обводка самого поля ввода */
+    border-radius: 6px;
+    font-size: 14px;
+    box-sizing: border-box; /* Важно для правильного расчета ширины с padding */
+}
+
+/* Стили для фокуса на поле ввода */
+.form-group input:focus {
+    outline: none;
+    border-color: #69c300; /* Зеленая обводка при клике */
+}
+
+/* --- Стили для кастомных чекбоксов (как на макете) --- */
+.checkbox-area {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.custom-check-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+/* Скрываем реальный чекбокс */
+.real-checkbox {
+    display: none;
+}
+
+/* Стилизуем кастомный квадратик */
+.custom-checkbox {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    background: #fff;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Стиль при наведении */
+.custom-check-container:hover .custom-checkbox {
+    border-color: #ccc;
+}
+
+/* Стиль, когда чекбокс выбран */
+.real-checkbox:checked + .custom-checkbox {
+    background-color: #69c300; /* Зеленый фон */
+    border-color: #69c300;
+}
+
+/* Рисуем белую галочку внутри */
+.real-checkbox:checked + .custom-checkbox::after {
+    content: '✔'; /* Символ галочки */
+    position: absolute;
+    left: 3px;
+    top: -1px;
+    color: white;
+    font-size: 14px;
+}
+
+/* Текст рядом с чекбоксом */
+.custom-check-container span {
+    font-size: 14px;
+    color: #555;
+}
+
+.custom-check-container a {
+    color: #69c300; /* Зеленые ссылки */
+    text-decoration: none;
+}
+/* 1. Ограничиваем правую колонку (Ваш заказ) */
+.cart-right-column {
+    width: 380px;
+    flex-shrink: 0;
+}
+
+/* 2. Убираем обводку блока оплаты */
+.checkout-form-pure {
+    border: none;
+    box-shadow: none;
+    padding: 0;
+}
+
+/* 3. Располагаем ФИО, Телефон и Email в одну линию */
+.form-row-inline {
+    display: flex;
+    gap: 20px; /* Отступ между полями */
+    margin-bottom: 25px;
+}
+
+.form-row-inline .form-group {
+    flex: 1; /* Поля делят ширину поровну */
+}
+
+/* 4. Стили для кастомной галочки (зеленая) */
+.check-hidden:checked + .check-label {
+    background-color: #69c300;
+    border-color: #69c300;
+}
+
+.check-hidden:checked + .check-label::after {
+    content: '✔';
+    position: absolute;
+    color: white;
+    font-size: 14px;
+    left: 3px;
+    top: -1px;
+}
+.delete-icon {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    transition: all 0.2s;
+}
+
+.delete-icon:hover {
+    border-color: #ffcccc;
+    color: #ff4d4d;
+    background: #fff0f0;
+}
+
+.delete-icon svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+/* Класс для анимации удаления строки */
+.row-fade-out {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.4s ease;
+}
+
+/* Дополнительно: плавное изменение цвета при наведении на строку */
+.cart-table tr {
+    transition: background-color 0.3s ease;
+}
+/* Анимация увеличения */
+@keyframes cart-bounce {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* Класс, который мы будем вешать через JS */
+.cart-icon-animate {
+    animation: cart-bounce 0.4s ease-out;
+}
+
+/* Улучшенный стиль счетчика (красный кружок) */
+#cart-badge {
+    background-color: #ff4d4d;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 11px;
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    font-weight: bold;
+    min-width: 18px;
+    text-align: center;
+}
+.error-alert {
+    background-color: #9bd35a;
+    color: white;
+    border: 1px solid #f8d7da;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.4;
+    animation: slideIn 0.3s ease; /* Плавное появление */
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Красная рамка для пустых полей */
+.input-error {
+    border-color: #d93025 !important;
+    background-color: #fff8f8;
+}
+#order-error-message {
+    background-color: #fff5f5;
+    color: #c62828;
+    border-left: 5px solid #ef5350; /* Жирная полоса слева для акцента */
+    padding: 16px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    font-size: 14px;
+}
+
+#order-error-message ul {
+    list-style-type: disc;
+}
+
+#order-error-message li {
+    margin-bottom: 4px;
+}
+
+/* Подсветка поля ошибки */
+.input-error {
+    border: 1px solid #ef5350 !important;
+    background-color: #fffbfb !important;
+    box-shadow: 0 0 0 2px rgba(239, 83, 80, 0.1); /* Легкое свечение */
+}
+/* Полноэкранный лоадер */
+.full-loader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.85); /* Белый полупрозрачный фон */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Поверх всех элементов */
+    backdrop-filter: blur(4px); /* Эффект размытия заднего плана */
+}
+
+.loader-content {
+    text-align: center;
+}
+
+.main-spinner {
+    width: 60px;
+    height: 60px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #69c300; /* Твой фирменный зеленый */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 15px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loader-content p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    color: #333;
+    font-weight: 500;
+}
+

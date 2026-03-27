@@ -1,0 +1,26 @@
+<div class="return-container">
+    <h1>Заявка на возврат</h1>
+
+    <div class="return-section">
+        <label>Выберите товар из ваших заказов:</label>
+        <div id="return-products-list">
+        </div>
+    </div>
+
+    <div class="return-section">
+        <label>Причина возврата:</label>
+        <select id="return-reason">
+            <option value="Не подошел размер">Не подошел размер</option>
+            <option value="Брак / Повреждение">Брак / Повреждение</option>
+            <option value="Товар отличается от фото">Товар отличается от фото</option>
+            <option value="Другое">Другое</option>
+        </select>
+    </div>
+
+    <div class="return-section">
+        <label>Комментарий (необязательно):</label>
+        <textarea id="return-comment" rows="3" placeholder="Опишите проблему..."></textarea>
+    </div>
+
+    <button class="btn-submit-return" onclick="submitReturnRequest()">Отправить заявку</button>
+</div>

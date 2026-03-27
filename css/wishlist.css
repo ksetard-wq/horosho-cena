@@ -1,0 +1,210 @@
+.container-wish{
+    background-color: white;
+
+}
+.breadcrumbs a {
+    color: blue;         /* Цвет ссылки как на скрине */
+    text-decoration: none;  /* Убираем подчеркивание */
+    transition: color 0.2s;
+    opacity:0.5;
+
+}
+.breadcrumbs{
+    margin:20px 50px;
+}
+.page-title{
+    margin:20px 50px;
+}
+.breadcrumbs span{
+    padding: 10px;
+}
+.breadcrumbs a:hover {
+    color: #49ef09;         /* Цвет при наведении */
+
+}
+#empty-wishlist{
+    margin:20px 50px;
+    gap:20px;
+    display: none;
+}
+#wishlist-content{
+    margin:20px 50px;
+}
+.wishlist-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+.wishlist-table th {
+    border-bottom: 1px solid #f0f0f0;
+    color: #999;
+    font-weight: 400;
+    padding: 15px 10px;
+    text-align: left;
+}
+
+.wishlist-table td {
+    padding: 20px 10px;
+    border-bottom: 1px solid #f9f9f9;
+}
+
+.wish-item-name {
+    color: #999; /* Зеленый цвет названия */
+    text-decoration: none;
+}
+
+.stock-status {
+    color: #69c300; /* Цвет статуса наличия */
+}
+.wish-name:hover{
+    color: #69c300;
+}
+/* Кнопка "В корзину" в таблице желаний */
+.btn-wish-to-cart {
+    background: transparent;
+    border: 1px solid #e0e0e0;
+    color: #69c300;
+    padding: 8px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.btn-wish-to-cart:hover {
+    background: #69c300;
+    color: #fff;
+    border-color: #69c300;
+}
+/* Прозрачный крестик */
+.remove-btn {
+    background: none;
+    border: none;
+    color: rgba(0, 0, 0, 0.1); /* Почти прозрачный */
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.dropdown-content button:hover{
+    color: #ff4d4d; /* Становится красным при наведении */
+    transform: scale(1.2);
+}
+.remove-btn:hover {
+    color: #ff4d4d; /* Становится красным при наведении */
+    transform: scale(1.2);
+}
+
+/* Анимация удаления строки */
+.product-row {
+    transition: all 0.5s ease;
+}
+
+.product-row.fade-out {
+    opacity: 0;
+    transform: translateX(30px); /* Улетает вправо */
+}
+
+/* Стили для кнопки "В корзине" */
+.btn-wish-to-cart.added {
+    background: #69c300;
+    color: white;
+    border-color: #69c300;
+}
+/* Кнопка в обычном состоянии */
+.btn-wish-to-cart {
+    background: transparent;
+    border: 1px solid #e0e0e0;
+    color: #69c300;
+    transition: all 0.3s ease;
+}
+
+/* Кнопка, когда товар уже в корзине (класс .is-added) */
+.btn-wish-to-cart.is-added {
+    background-color: #69c300 !important;
+    color: #ffffff !important;
+    border-color: #69c300 !important;
+    cursor: default;
+    pointer-events: none;/* Делаем курсор обычным, так как товар уже добавлен */
+}
+
+/* Прозрачный крестик (как вы просили ранее) */
+.remove-btn {
+    background: none;
+    border: none;
+    color: rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition:all 0.3s ease;
+}
+
+.remove-btn:hover {
+    color: #ff4d4d;
+    scale: 1.3;
+}
+.product-row {
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.product-row.fade-out {
+    opacity: 0;
+    transform: translateX(20px); /* Строка чуть уедет вправо при удалении */
+}
+.empty-cart-banner {
+    background-color: #eef7e1;/* Светло-зеленый фон */
+    color: #1a1a1a;            /* Цвет текста */
+    padding: 20px 30px;        /* Внутренние отступы */
+       border-radius: 5px;    /* Скругление углов */
+    border: 1px solid #e1f3d8; /* Едва заметная рамка для мягкости */
+    font-size: 16px;
+    margin-bottom: 20px;
+    width: 1450px;               /* Чтобы растягивалось на всю ширину */
+    box-sizing: border-box;
+}
+.product-row.fade-out {
+    opacity: 0;
+    transform: translateX(20px);
+    transition: 0.5s ease;
+}
+/* Стили для Избранного */
+.wish-item-name-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.wish-item-name-link:hover .wish-item-name {
+    color: #69c300; /* Ваш зеленый цвет */
+
+}
+
+.mini-wish-link:hover .wish-name {
+    color: #69c300;
+}
+
+.wish-table-img {
+    transition: transform 0.2s ease;
+}
+
+.wish-table-img:hover {
+    transform: scale(1.1);
+}
+
+/* Кнопка удаления в списке (крестик) */
+.remove-wish-btn {
+    background: none;
+    border: none;
+    color: #ccc;
+    cursor: pointer;
+    font-size: 18px;
+    transition:all 0.2s;
+}
+
+.remove-wish-btn:hover {
+    color: #ff4d4d;
+    scale: 1.3;
+}
+.btn-wish-to-cart:hover {
+    background-color: #69c300 !important; /* Заливаем зеленым */
+    color: #ffffff !important;           /* Текст белым */
+    box-shadow: 0 4px 12px rgba(105, 195, 0, 0.3); /* Легкое свечение */
+    transform: translateY(-2px);         /* Легкий подъем */
+}

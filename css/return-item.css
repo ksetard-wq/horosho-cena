@@ -1,0 +1,364 @@
+.rf-wrapper {
+    background: white;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.rf-card {
+    max-width: 850px;
+    margin: 0 auto;
+    background: white;
+    padding: 40px;
+
+    width: 1500px;
+}
+
+.rf-title { font-size: 28px; margin-bottom: 30px; font-weight: 800; color: #1a202c; text-align: center; }
+
+.rf-section { margin-bottom: 32px; }
+.rf-labe {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #4a5568;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Горизонтальная сетка товаров */
+.rf-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    padding: 4px;
+}
+
+.rf-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border: 2px solid #edf2f7;
+    border-radius: 18px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    background: #fff;
+    text-align: center;
+}
+
+.rf-item:hover { border-color: #69c300; transform: translateY(-2px); }
+
+.rf-item.rf-selected {
+    border-color: #69c300;
+    background: #f0f9eb;
+    box-shadow: 0 8px 20px rgba(105, 195, 0, 0.15);
+}
+
+.rf-item img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    margin-bottom: 12px;
+    filter: grayscale(0.2);
+}
+
+.rf-item-name { font-weight: 700; font-size: 15px; color: #2d3748; margin-bottom: 4px; }
+.rf-item-price { font-size: 13px; color: #718096; }
+
+/* Поля выбора и ввода */
+.rf-select, .rf-area {
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid #edf2f7;
+    border-radius: 14px;
+    font-size: 16px;
+    color: #2d3748;
+    outline: none;
+    transition: 0.3s;
+    background: #fdfdfd;
+    box-sizing: border-box;
+}
+
+.rf-select:focus, .rf-area:focus {
+    border-color: #69c300;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(105, 195, 0, 0.08);
+}
+
+/* Кнопка */
+.rf-btn {
+
+    background: #69c300;
+    color: white;
+    border: none;
+    padding: 20px;
+    border-radius: 16px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 10px 25px rgba(105, 195, 0, 0.25);
+    display: block;          /* Делаем блочным для работы margin: auto */
+    margin: 40px auto 0;
+}
+
+.rf-btn:hover { background: #5bb000; transform: translateY(-2px); box-shadow: 0 12px 30px rgba(105, 195, 0, 0.35); }
+
+/* Стиль для ошибки, если не выбрано */
+.rf-error-ring { border-color: #e53e3e !important; animation: rf-shake 0.4s; }
+
+@keyframes rf-shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.rf-empty-msg { text-align: center; color: #a0aec0; padding: 20px; grid-column: 1/-1; }
+/* Делаем основной контейнер на всю ширину */
+.rf-card {
+    max-width: 1200px; /* Почти на весь экран */
+    margin: 30px auto;
+    background: white;
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+/* Сетка превращается в вертикальный список широких карточек */
+.rf-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Горизонтальная карточка */
+.rf-item {
+    display: flex;
+    flex-direction: row; /* Текст и фото в ряд */
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px 30px;
+    border: 2px solid #edf2f7;
+    border-radius: 20px;
+    text-align: left; /* Текст слева */
+    transition: 0.3s ease;
+}
+
+/* Контейнер для фото */
+.rf-item img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    margin-right: 25px;
+    margin-bottom: 0;
+    background: #fff;
+    border-radius: 12px;
+}
+
+/* Блок с текстовой информацией */
+.rf-info-wrapper {
+    flex-grow: 1; /* Занимает все свободное пространство */
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.rf-item-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a202c;
+    margin: 0;
+}
+
+/* Характеристики товара */
+.rf-item-features {
+    font-size: 14px;
+    color: #718096;
+    line-height: 1.4;
+}
+
+.rf-order-num-label {
+    font-size: 12px;
+    color: #69c300;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+/* Цена справа */
+.rf-item-price {
+    font-size: 20px;
+    font-weight: 800;
+    color: #1a202c;
+    margin-left: 20px;
+    white-space: nowrap;
+}
+
+/* Заголовок по центру */
+.rf-title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 40px;
+}
+
+/* Состояние при выборе */
+.rf-item.rf-selected {
+    border-color: #69c300;
+    background: #fafff5;
+    box-shadow: 0 5px 15px rgba(105, 195, 0, 0.1);
+
+    .rf-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 15px;
+        margin-top: 10px;
+    }
+
+    .rf-item {
+        border: 1px solid #eee;
+        border-radius: 10px;
+        padding: 10px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .rf-img-wrapper {
+        width: 100%;
+        height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 8px;
+        background: #f9f9f9;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .rf-img-wrapper img {
+        max-width: 90%;
+        max-height: 90%;
+        object-fit: contain;
+    }
+
+    .rf-item.rf-selected {
+        border-color: #76e12e;
+        box-shadow: 0 0 0 2px rgba(118, 225, 46, 0.2);
+        background: #f0fff0;
+    }
+
+    .rf-item-name {
+        font-weight: 600;
+        font-size: 14px;
+        margin-bottom: 4px;
+    }
+
+    .rf-item-price {
+        color: #76e12e;
+        font-weight: 700;
+    }}
+/* Делаем wrapper на всю ширину и убираем лишние отступы */
+.rf-wrapper {
+    width: 100%;
+    margin-top: 30px; /* Отступ от хлебных крошек */
+}
+
+/* Растягиваем карточку возврата, чтобы она стала широкой */
+.rf-card {
+    /* ... твои старые стили (background, shadow, border-radius) ... */
+
+    /* ИЗМЕНИТЬ: убираем max-width, ставим max-width всей страницы */
+    width: 100%;
+    max-width: 1550px; /* Та же ширина, что у .search-container-wide */
+    margin: 30px auto; /* Центрируем и даем отступ сверху */
+
+    /* ИЗМЕНИТЬ: делаем отступы внутри пошире */
+    padding: 50px 70px; /* Увеличил отступы внутри для "воздуха" */
+}
+
+/* Изменим сетку товаров, чтобы она смотрелась красиво на широком экране */
+#rf-list.rf-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Увеличил ширину ячейки */
+}
+/* Универсальный контейнер для широких страниц (1550px) */
+.container-wide {
+    max-width: 1550px;
+    margin: 0 auto;
+    padding: 0 40px; /* Внутренние отступы */
+}
+
+/* Хлебные крошки */
+.breadcrumbs {
+    margin: 20px 0;
+    font-size: 14px;
+    color: #86868b;
+    font-weight: 500;
+}
+
+.breadcrumbs a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.breadcrumbs a:hover {
+    color: #76e12e; /* Твой зеленый */
+}
+
+.separator-arrow {
+    margin: 0 8px;
+    color: #ccc;
+    font-weight: 400;
+}
+
+.current-page {
+    color: #86868b;
+    font-weight: 500;
+}
+/* Бейдж "уже в возврате" */
+.rf-badge-returned {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ff4d4d;
+    color: white;
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+/* Контейнер для фото в списке */
+.rf-img-wrapper {
+    width: 100px;
+    height: 100px;
+    min-width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f9f9f9;
+    border-radius: 12px;
+    margin-right: 25px; /* Отступ справа от фото */
+    overflow: hidden;
+}
+
+.rf-img-wrapper img {
+    max-width: 85%;
+    max-height: 85%;
+    object-fit: contain;
+}
+
+/* Растягиваем текст */
+.rf-info-wrapper {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

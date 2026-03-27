@@ -1,0 +1,82 @@
+.all-white{
+    background-color: white;
+}
+.page-content {
+    width: 1600px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Верхний блок на белом фоне */
+.about-section {
+    margin-bottom: 60px;
+}
+
+.about-section h1 {
+    font-size: 40px;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 30px;
+}
+
+.about-section p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    max-width: 1000px;
+}
+
+/* Нижний блок на сером фоне */
+.details-section {
+     /* Тот самый серый цвет */
+    margin-left: -100vw;
+    margin-right: -100vw;
+    padding-left: 100vw;
+    padding-right: 100vw;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.details-section p {
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+.assortment {
+    margin-bottom: 50px;
+}
+
+.assortment ul {
+    list-style-type: disc;
+    padding-left: 25px;
+}
+
+.assortment li {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* Реквизиты */
+.legal-info h2 {
+    font-size: 30px;
+    font-weight: 700;
+    color: #000;
+    margin-top: 40px;
+    margin-bottom: 25px;
+}
+
+.legal-info p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.legal-info strong {
+    font-weight: 700;
+    color: #000;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .about-section h1 { font-size: 32px; }
+    .legal-info h2 { font-size: 26px; }
+    .about-section p, .details-section p, .assortment li { font-size: 16px; }
+}

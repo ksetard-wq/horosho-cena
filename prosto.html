@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Каталог товаров</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f5f5f5;
+    }
+
+    .header {
+      background-color: white;
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #eaeaea;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .logo span {
+      color: #ff6b6b;
+    }
+
+    .search-bar {
+      flex: 1;
+      max-width: 500px;
+      margin: 0 30px;
+      position: relative;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 12px 20px;
+      border: 1px solid #ddd;
+      border-radius: 25px;
+      font-size: 14px;
+      outline: none;
+    }
+
+    .search-bar input:focus {
+      border-color: #ff6b6b;
+    }
+
+    .user-actions {
+      display: flex;
+      gap: 25px;
+      align-items: center;
+    }
+
+    .user-actions a {
+      text-decoration: none;
+      color: #333;
+      font-size: 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .user-actions a:hover {
+      color: #ff6b6b;
+    }
+
+    .icon {
+      font-size: 20px;
+    }
+
+    .city-selector {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: #666;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .city-selector:hover {
+      color: #ff6b6b;
+    }
+
+    .main-nav {
+      background-color: white;
+      padding: 10px 30px;
+      border-bottom: 1px solid #eaeaea;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: #ff6b6b;
+    }
+
+    .catalog-title {
+      background-color: #f0f0f0;
+      padding: 15px 30px;
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .search-section {
+      background-color: white;
+      padding: 30px;
+    }
+
+    .search-section h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .catalog-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 15px;
+      background-color: #f9f9f9;
+      border: 1px solid #eaeaea;
+      border-radius: 5px;
+      text-decoration: none;
+      color: #333;
+      transition: all 0.2s;
+    }
+
+    .catalog-item:hover {
+      background-color: #fff0f0;
+      border-color: #ff6b6b;
+      transform: translateY(-2px);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .catalog-item span {
+      font-size: 14px;
+    }
+
+    .catalog-item .arrow {
+      color: #999;
+      font-size: 12px;
+    }
+
+    .catalog-item:hover .arrow {
+      color: #ff6b6b;
+    }
+
+    .footer-links {
+      background-color: white;
+      padding: 20px 30px;
+      margin-top: 30px;
+      border-top: 1px solid #eaeaea;
+    }
+
+    .footer-menu {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-menu a {
+      text-decoration: none;
+      color: #666;
+      font-size: 14px;
+    }
+
+    .footer-menu a:hover {
+      color: #ff6b6b;
+    }
+
+    @media (max-width: 768px) {
+      .header {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .search-bar {
+        margin: 10px 0;
+        max-width: 100%;
+      }
+
+      .user-actions {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .catalog-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+
+      .footer-menu {
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .catalog-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+<!-- Шапка сайта -->
+<div class="header">
+  <div class="logo">д<span>н</span>аЦена</div>
+
+  <div class="search-bar">
+    <input type="text" placeholder="Начните поиск товара...">
+  </div>
+
+  <div class="user-actions">
+    <a href="#">
+      <span class="icon">👤</span>
+      <span>Войти</span>
+    </a>
+    <a href="#">
+      <span class="icon">❤️</span>
+      <span>Избранное</span>
+    </a>
+    <a href="#">
+      <span class="icon">🛒</span>
+      <span>Корзина</span>
+    </a>
+    <div class="city-selector">
+      <span class="icon">📍</span>
+      <span>Екатеринбург</span>
+    </div>
+  </div>
+</div>
+
+<!-- Основная навигация -->
+<div class="main-nav">
+  <ul class="nav-links">
+    <li><a href="#">Акции</a></li>
+    <li><a href="#">Доставка и оплата</a></li>
+    <li><a href="#">Контакты</a></li>
+    <li><a href="#">Адреса магазинов</a></li>
+    <li><a href="#">Работа у нас</a></li>
+  </ul>
+</div>
+
+<!-- Заголовок каталога -->
+<div class="catalog-title">
+  Каталог товаров
+</div>
+
+<!-- Секция поиска -->
+<div class="search-section">
+  <h2>Начните поиск товара</h2>
+
+  <div class="catalog-grid">
+    <a href="#" class="catalog-item">
+      <span>Бытовая химия</span>
+      <span class="arrow">›</span>
+    </a>
+    <a href="#" class="catalog-item">
+      <span>Галантерея</span>
+      <span class="arrow">›</span>
+    </a>
+    <a href="#" class="catalog-item">
+      <span>Искусственные цветы</span>
+      <span class="arrow">›</span>
+    </a>
+    <a href="#" class="catalog-item">
+      <span>Канцтовары</span>
+      <span class="arrow">›</span>
+    </a>
+    <a href="#" class="catalog-item">
+      <span>Красота и гигиена</span>
+      <span class="arrow">›</span>
+    </a>
+    <a href="#" class="catalog-item">
+      <span>Новый Год</span>
+      <span class="arrow">›</span>
+    </a>
+    <a href="#" class="catalog-item">
+      <span>Одежда и обувь</span>
+      <span class="arrow">›</span>
+    </a>
+    <a href="#" class="catalog-item">
+      <span>Посуда</span>
+      <span class="arrow">›</span>
+    </a>
+    <a href="#" class="catalog-item">
+      <span>Продукты и напитки</span>
+      <span class="arrow">›</span>
+    </a>
+    <a href="#" class="catalog-item">
+      <span>Спорт и отдых</span>
+      <span class="arrow">›</span>
+    </a>
+    <a href="#" class="catalog-item">
+      <span>Товары для детей</span>
+      <span class="arrow">›</span>
+    </a>
+    <a href="#" class="catalog-item">
+      <span>Товары для дома</span>
+      <span class="arrow">›</span>
+    </a>
+    <a href="#" class="catalog-item">
+      <span>Товары для животных</span>
+      <span class="arrow">›</span>
+    </a>
+    <a href="#" class="catalog-item">
+      <span>Товары для Сада и Дачи</span>
+      <span class="arrow">›</span>
+    </a>
+    <a href="#" class="catalog-item">
+      <span>Хобби и творчество</span>
+      <span class="arrow">›</span>
+    </a>
+    <a href="#" class="catalog-item">
+      <span>Хозтовары</span>
+      <span class="arrow">›</span>
+    </a>
+  </div>
+</div>
+
+<!-- Нижнее меню -->
+<div class="footer-links">
+  <ul class="footer-menu">
+    <li><a href="#">Акции</a></li>
+    <li><a href="#">Доставка и оплата</a></li>
+    <li><a href="#">Контакты</a></li>
+    <li><a href="#">Адреса магазинов</a></li>
+    <li><a href="#">Работа у нас</a></li>
+  </ul>
+</div>
+</body>
+</html>

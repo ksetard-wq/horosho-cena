@@ -1,0 +1,101 @@
+/* Основной контейнер, имитирующий ширину страницы со скриншота */
+.white-fone{
+    width:1600px;
+    background-color: white;
+}
+.privacy-card {
+    max-width: 900px; /* Ограничиваем ширину для комфортного чтения */
+    margin: 40px 20px; /* Центрируем и задаем отступы сверху/снизу */
+    padding: 0 20px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    color: #333333; /* Темно-серый цвет текста, как на скрине */
+
+    box-shadow: none; /* Убираем любые тени, если они были */
+    border: none;
+}
+
+/* Стили для хлебных крошек */
+.breadcrumb {
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.breadcrumb a {
+    color: #0066cc; /* Синий цвет */
+    text-decoration: none;
+    opacity: 0.8;
+    transition: all 0.5s ease;
+}
+.breadcrumb span { color: #999;  padding: 10px;}
+.breadcrumb a:hover {
+    color: #49ef09;         /* Цвет при наведении */
+
+}
+
+/* Скрываем иконку домика в хлебных крошках для полного сходства */
+.breadcrumb .fa-home {
+    display: none;
+}
+
+/* Заголовок H1 (Политика конфиденциальности) */
+.content h1 {
+    font-size: 2.2rem; /* Крупный размер */
+    font-weight: 700;
+    color: #222222;
+    margin-top: 0;
+    margin-bottom: 50px; /* Большой отступ снизу до первого раздела */
+    line-height: 1.2;
+}
+
+/* Заголовки H2 (Кто мы, Комментарии и т.д.) */
+.content h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #222222;
+    margin-top: 60px; /* Большой отступ сверху, чтобы отделить блоки */
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Если вы хотите, чтобы было точь-в-точь как на скрине — скрываем иконки FontAwesome в заголовках */
+.content h2 i {
+    display: none;
+}
+
+/* Стили для основного текста */
+.content p,
+.content div {
+    font-size: 15px;
+    line-height: 1.6; /* Межстрочный интервал для хорошей читаемости */
+    color: #444444;
+    margin-bottom: 16px;
+}
+
+/* Ссылки в тексте */
+.content a {
+    color: #49ef09;
+    text-decoration: none;
+    transition: all 0.5s ease;
+}
+
+.content a:hover {
+    color: #03d603;
+}
+
+/* Убираем выделение блоков, чтобы текст шел сплошным потоком, как на скриншоте */
+.highlight-block,
+.small-note {
+    background: transparent !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Делаем "Наш адрес сайта:" или "Предлагаемый текст:" жирным, если нужно (в HTML у вас не везде стоит <strong>) */
+.content p strong {
+    font-weight: 600;
+    color: #333333;
+}

@@ -1,0 +1,151 @@
+/* Добавляем стили для фона всей страницы */
+
+
+:root {
+var(--primary-color): #49ef09;
+    --bg-soft: #f8fafc;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --radius: 16px;
+}
+.all-white{
+    background-color: white;
+}
+.breadcrumbs{
+    margin:20px 50px;
+}
+.breadcrumbs a {
+    color: blue;
+    text-decoration: none;
+    transition: color 0.2s;
+    opacity: 0.5;
+
+}
+
+.breadcrumbs span {
+    padding: 0 7px; /* Немного уменьшил отступ для крошек */
+}
+
+.breadcrumbs a:hover {
+    color: #49ef09;
+
+}
+.order-main-title{
+    margin:20px 50px;
+    font-size:34px;
+}
+.returns-container {
+    width: 1000px;
+    margin: 60px auto; /* Центрирует блок */
+    padding: 40px;
+    background: #ffffff;
+    border-radius: var(--radius);
+    /* Убрал или оставил тень на ваше усмотрение, для эффекта как на скрине */
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+}
+
+.returns-header {
+    text-align: left; /* ТЕПЕРЬ СЛЕВА */
+    margin-bottom: 48px;
+}
+
+.returns-header h2 {
+    font-size: 2.5rem; /* Сделал чуть крупнее как на макете */
+    color: var(--text-main);
+    margin: 15px 0;
+}
+
+.returns-header p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+.returns-grid {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.return-step {
+    flex: 1;
+    min-width: 250px;
+    padding: 32px;
+    background: var(--bg-soft);
+    border-radius: var(--radius);
+    transition: transform 0.3s ease;
+}
+
+.return-step:hover {
+    transform: translateY(-5px);
+    background: #f1f5f9;
+}
+
+.step-icon {
+    font-weight: 800;
+    font-size: 1.8rem;
+    color:  #49ef09;
+    margin-bottom: 16px;
+    opacity: 0.6;
+}
+
+.return-step h3 {
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+    color: var(--text-main);
+}
+
+.return-step p {
+    line-height: 1.6;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.returns-footer {
+    margin-top: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 32px;
+}
+
+.info-badge {
+    font-size: 1rem;
+    color: var(--text-main);
+}
+
+.info-badge strong {
+    color:  #49ef09;
+}
+
+.btn-return {
+    background: #49ef09; /* Прямой цвет из вашего root */
+    color: white;
+    border: none;
+    padding: 16px 35px;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-return:hover {
+    background-color: #1be12b;
+    transform: scale(1.02);
+}
+
+/* Адаптив для мобилок */
+@media (max-width: 1040px) {
+    .returns-container {
+        width: 90%;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .returns-footer {
+        flex-direction: column;
+        gap: 20px;
+    }
+}

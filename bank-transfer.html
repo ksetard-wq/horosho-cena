@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Реквизиты для оплаты | Forward</title>
+  <style>
+    body {
+      font-family: 'Roboto', -apple-system, sans-serif;
+      background-color: #f5f5f7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      color: #333;
+    }
+
+    .bank-details-card {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      width: 100%;
+      max-width: 450px;
+      text-align: center;
+    }
+
+    .bank-details-card h3 {
+      font-size: 22px;
+      margin-bottom: 15px;
+      color: #222;
+      font-weight: 700;
+    }
+
+    .bank-details-card p {
+      font-size: 15px;
+      color: #666;
+      line-height: 1.5;
+      margin-bottom: 30px;
+    }
+
+    /* Стили рядов с данными */
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+      border-bottom: 1px dashed #eee;
+      font-size: 16px;
+    }
+
+    .detail-row:last-of-type {
+      border-bottom: none;
+      margin-bottom: 20px;
+    }
+
+    .detail-row span {
+      color: #888;
+    }
+
+    .detail-row strong {
+      color: #222;
+      font-weight: 600;
+      word-break: break-all; /* Чтобы длинный IBAN не вылезал */
+      margin-left: 10px;
+    }
+
+    #transfer-amount {
+      color: #69c300; /* Ваш фирменный цвет */
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    /* Кнопка в стиле магазина */
+    .confirm-btn {
+      width: 100%;
+      background-color: #69c300;
+      color: white;
+      border: none;
+      padding: 18px;
+      font-size: 17px;
+      font-weight: 600;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 10px;
+      box-shadow: 0 4px 15px rgba(105, 195, 0, 0.2);
+    }
+
+    .confirm-btn:hover {
+      background-color: #5bb000;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(105, 195, 0, 0.3);
+    }
+
+    .confirm-btn:active {
+      transform: translateY(0);
+    }
+
+    /* Инструкция снизу */
+    .info-footer {
+      margin-top: 20px;
+      font-size: 12px;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+
+<div class="bank-details-card">
+  <h3>Реквизиты для оплаты</h3>
+  <p>Пожалуйста, переведите точную сумму по указанным реквизитам через ваш мобильный банк.</p>
+
+  <div class="detail-row">
+    <span>Получатель:</span>
+    <strong>ООО "Форвард Маркет"</strong>
+  </div>
+
+  <div class="detail-row">
+    <span>IBAN:</span>
+    <strong>BY24 UNIB 1234 5678 9012 3456</strong>
+  </div>
+
+  <div class="detail-row">
+    <span>К оплате:</span>
+    <strong id="transfer-amount">0₽</strong>
+  </div>
+
+  <button class="confirm-btn" onclick="completeBankTransfer()">Я оплатил(а)</button>
+
+  <div class="info-footer">
+    После нажатия заказ будет добавлен в ваш профиль и принят в обработку.
+  </div>
+</div>
+
+<script>
+  // 1. При загрузке страницы достаем данные заказа
+  document.addEventListener('DOMContentLoaded', () => {
+    const orderData = JSON.parse(sessionStorage.getItem('current_pending_order'));
+    if (orderData) {
+      document.getElementById('transfer-amount').innerText = orderData.amount;
+    }
+  });
+
+  // 2. Функция завершения
+  function completeBankTransfer() {
+    const orderData = JSON.parse(sessionStorage.getItem('current_pending_order'));
+
+    if (orderData) {
+      // Сохраняем в историю заказов (localStorage)
+      let history = JSON.parse(localStorage.getItem('my_orders')) || [];
+      orderData.status = "Ожидает подтверждения"; // Т.к. перевод проверяется вручную
+      history.unshift(orderData);
+      localStorage.setItem('my_orders', JSON.stringify(history));
+
+      // Очищаем корзину
+      localStorage.removeItem('user_cart');
+      localStorage.removeItem('applied_discount');
+
+      // Переходим на страницу успеха
+      window.location.href = 'success.html';
+    } else {
+      window.location.href = 'index.html';
+    }
+  }
+</script>
+
+</body>
+</html>

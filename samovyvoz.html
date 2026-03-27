@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Главная — Одна Цена</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Подключаем внешний CSS -->
+  <link rel="stylesheet" href="css/s1.css">
+  <link rel="stylesheet" href="css/catalog.css">
+
+  <link rel="stylesheet" href="css/product.css">
+  <link rel="stylesheet" href="css/service.css">
+</head>
+<body>
+<!-- Верхний бар (уменьшенный, с левым краем) -->
+<div class="top-links-bar">
+  <div class="container">
+    <div class="top-left-group">
+      <div class="location" id="openCityModal" style="cursor: pointer;">
+        <svg class="geo-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="10" stroke="#5a6472" stroke-width="2"/>
+          <path d="M15 9L9 15M15 9H10M15 9V14" stroke="#5a6472" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="city-text" id="currentCity">Минск</span>
+      </div>
+      <div class="separator"></div>
+      <span><a href="shops.html" >Адреса магазинов</a></span>
+      <span ><a href="works.html" >Работа у нас</a></span>
+    </div>
+
+    <div class="top-right-group">
+      <span><a href="stocks.html" >Акции</a></span>
+      <span><a href="oplata.html" >Доставка и оплата</a></span>
+      <span><a href="contacts.html" >Контакты</a></span>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="main-content">
+  <div class="container">
+
+    <div class="search-section">
+      <div class="logo-before-catalog">
+        <a href ="index.html " ><img src="img/логотип.png" alt="Форвард" class="site-logo"></a>
+      </div>
+      <div class="separator1"></div>
+
+      <div class="catalog-wrapper"> <button class="catalog-badge" id="catalogBtn">
+        <i class="fas fa-bars"></i> Каталог
+      </button>
+
+      </div>
+      <div class="search-box">
+        <input type="text" placeholder="Начните поиск товара">
+        <button><i class="fas fa-search"></i></button>
+      </div>
+
+
+      <!-- Блок: Войти, Избранное, Корзина -->
+      <div class="user-actions">
+
+        <div class="user-item">
+          <a href="login.html" style="text-decoration: none; color: inherit; display: flex; align-items: center;flex-direction: column;gap:6px;">
+            <i class="far fa-user"></i>
+            <span>Войти </span>
+          </a>
+        </div>
+
+        <div class="user-item wishlist-icon-wrapper" style="position: relative;">
+          <a href="wishlist.html" style="text-decoration: none; color: inherit; display: flex; align-items: center;" class="wishlist-link">
+            <i class="far fa-heart"></i>
+            <span>Избранное</span>
+            <span id="wishlist-badge" class="badge" style="display: none;">0</span>
+          </a>
+
+          <div id="wishlist-dropdown-content" class="dropdown-content">
+          </div>
+        </div>
+        <div class="user-item">
+          <div class="cart-wrapper">
+            <div class="header-cart">
+              <a href="cart.html">
+                <div class="cart-icon-container">
+                  <svg width="20" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                  </svg>
+                  <span id="cart-badge" class="cart-badge">0</span>
+                </div>
+                <span>Корзина </span>
+              </a>
+            </div>
+
+            <div id="cart-dropdown" class="cart-dropdown">
+              <div id="dropdown-content">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="toast-notification" class="toast"></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Категории -->
+<div class="nav-cats">
+  <div class="container">
+    <a href="shop.html?category=bytovaya-khimiya">Бытовая химия</a>
+    <a href="shop.html?category=galantereya">Галантерея</a>
+    <a href="shop.html?category=tsvety">Цветы</a>
+    <a href="shop.html?category=kantstovary">Канцтовары</a>
+    <a href="shop.html?category=krasota">Красота</a>
+    <a href="shop.html?category=odezhda">Одежда</a>
+    <a href="shop.html?category=posuda">Посуда</a>
+    <a href="shop.html?category=produkty">Продукты</a>
+    <a href="shop.html?category=sport">Спорт</a>
+    <a href="shop.html?category=detyam">Детям</a>
+    <a href="shop.html?category=dom">Дом</a>
+    <a href="shop.html?category=zhivotnym">Животным</a>
+    <a href="shop.html?category=sad">Сад</a>
+    <a href="shop.html?category=khobbi">Хобби</a>
+    <a href="shop.html?category=khoztovary">Хозтовары</a>
+  </div>
+</div>
+
+<!-- Основной контент -->
+<div class="all-white">
+  <div class="container page-header">
+    <div class="breadcrumbs">
+      <a href="index.html">Главная</a>
+      <span class="separator-arrow">›</span>
+      <a href="service.html">Самовывоз</a>
+    </div>
+
+    <h1 class="page-title">Самовывоз</h1>
+  </div>
+
+  <div class="development-block">
+    <div class="development-content">
+      <i class="fas fa-wrench"></i>
+      <p>Страница находится в разработке</p>
+    </div>
+  </div>
+</div>
+<!-- футер-->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-contact">
+        <p>По любым вопросам</p>
+        <div class="footer-phone-wrap">
+          <a href="tel:375445555555" class="footer-phone">374 44 55 555 55</a>
+          <div class="contact-icons">
+            <a href="#" class="icon-tg"><i class="fab fa-telegram-plane"></i></a>
+            <a href="#" class="icon-wa"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-subscribe">
+        <span>Присоединяйтесь к нам:</span>
+        <div class="subscribe-box">
+          <input type="email" placeholder="Введите почту чтоб получать рассылки">
+          <button class="btn-subscribe">Подписаться</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-main">
+      <div class="footer-col">
+        <a href="shops.html">Телефоны и адреса магазинов</a>
+        <a href="service.html">Сервисные центры</a>
+        <a href="kak-oformit.html">Как оформить заказ</a>
+        <a href="works.html">Вакансии</a>
+        <a href="contacts.html">Контакты</a>
+      </div>
+      <div class="footer-col">
+        <a href="vozvrat.html">Возврат товаров</a>
+        <a href="privacy.html">Политика конфиденциальности</a>
+        <a href="help.html">Помощь</a>
+        <a href="postav.html">Поставщикам</a>
+        <a href="partners.html">Партнеры и программы лояльности</a>
+      </div>
+      <div class="footer-col">
+        <a href="garanty.html">Гарантия на товары</a>
+        <a href="polzovatel.html">Пользовательское соглашение</a>
+        <a href="samovyvoz.html">Самовывоз</a>
+        <a href="about-company.html">О компании</a>
+        <a href="pravs.html">Правила программы лояльности</a>
+      </div>
+      <div class="footer-col social-col">
+        <p>Одна цена в соц. сетях</p>
+        <div class="social-icons">
+          <a href="#" class="soc-vk"><i class="fab fa-vk"></i></a>
+          <a href="#" class="soc-tg"><i class="fab fa-telegram"></i></a>
+          <a href="#" class="soc-ok"><i class="fab fa-odnoklassniki"></i></a>
+          <a href="#" class="soc-yt"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p class="email-label">E-mail</p>
+        <a href="mailto:info@horosho-cena.ru" class="footer-email">info@odna-cena.ru</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© Хорошая Цена, 2026 Все права защищены</p>
+      <p>Есть вопрос? Отправьте его нам с помощью <a href="#">формы обратной связи</a></p>
+    </div>
+  </div>
+
+  <div class="scroll-top">
+    <i class="fas fa-chevron-up"></i>
+  </div>
+</footer>
+<div class="catalog-menu" id="catalogMenu">
+
+  <div class="menu-header">
+    <div class="menu-logo">
+      <img src="img/логотип.png" alt="логотип">
+    </div>
+    <div class="search-inside-menu">
+      <button class="search-icon"><i class="fas fa-search"></i></button>
+      <input type="text" id="catalogSearchInput" placeholder="Начните поиск товара">
+    </div>
+  </div>
+  <div class="catalog-lower-section">
+    <div class="catalog-sidebar-left">
+
+      <ul class="main-categories" id="mainCategories">
+      </ul>
+
+      <div class="menu-footer">
+        <div class="footer-links">
+          <a href="stocks.html">Акции</a>
+          <a href="oplata.html">Доставка и оплата</a>
+          <a href="contacts.html">Контакты</a>
+          <a href="shops.html">Адреса магазинов</a>
+          <a href="works.html">Работа у нас</a>
+        </div>
+        <div class="separator2"></div>
+        <div class="footer-user-actions">
+          <a href="login.html" class="f-user-item"><i class="far fa-user"></i> Войти
+          </a>
+          <a href="wishlist.html" class="f-user-item"><i class="far fa-heart"></i> Избранное
+            <span id="wishlist-badge-menu" class="badge-count">0</span></a>
+          <a href="cart.html" class="f-user-item"><i class="fas fa-shopping-cart"></i> Корзина
+            <span id="cart-badge-menu" class="badge-count highlight">0</span></a>
+          <div class="f-user-item" id="cityTrigger">
+            <svg class="geo-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="10" stroke="#5a6472" stroke-width="2"/>
+              <path d="M15 9L9 15M15 9H10M15 9V14" stroke="#5a6472" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg><span class="current-city-value" >Минск</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sub-categories" id="subContainer">
+      <ul id="submenuList"></ul>
+    </div>
+  </div>
+
+
+
+  <button class="close-menu" id="closeMenu">&times;</button>
+</div>
+<div id="cityModal" class="modal-overlay">
+  <div class="modal-content">
+    <h3>Выберите город</h3>
+    <div class="city-list">
+      <div class="city-col">
+        <span class="city-variant">Минск</span>
+        <span class="city-variant">Гомель</span>
+        <span class="city-variant">Брест</span>
+      </div>
+      <div class="city-col">
+        <span class="city-variant">Жлобин</span>
+        <span class="city-variant">Могилев</span>
+        <span class="city-variant">Витебск</span>
+      </div>
+    </div>
+    <div class="modal-search">
+      <label>Ваш город</label>
+      <input type="text" id="citySearchInput" placeholder="Найти город">
+      <button class="btn-search">Поиск</button>
+    </div>
+    <button id="closeModal" class="btn-close">Отменить выбор</button>
+  </div>
+</div>
+<!-- Подключаем внешний JavaScript -->
+<script src="js/script.js"></script>
+<!-- Подключаем внешний JavaScript -->
+<script src="js/catalog.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/wishlist.js"></script>
+
+</body>
+</html>

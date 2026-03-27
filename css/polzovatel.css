@@ -1,0 +1,39 @@
+.requisites-simple {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+.requisites-simple .requisites-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #000000;
+}
+
+.requisites-simple ul {
+    list-style-type: disc;
+    padding-left: 40px;
+    margin: 0;
+}
+
+.requisites-simple ul li {
+    font-size: 16px;
+    line-height: 2; /* Увеличенный межстрочный интервал как на скрине */
+    color: #333333;
+    margin-bottom: 5px;
+}
+
+.requisites-simple ul li strong {
+    font-weight: 700;
+    color: #333333;
+}
+
+/* Настройка цвета маркера (точки) */
+.requisites-simple ul li::marker {
+    color: #000000;
+}
+.development-block{
+    margin: 20px 0;
+    background-color: #f8fafc;
+}
