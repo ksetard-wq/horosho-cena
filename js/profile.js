@@ -186,23 +186,28 @@ function renderWishlist() {
     const container = document.getElementById('wishlist-container');
     if (!container) return;
 
-    // 1. Получаем реальные лайкнутые товары из localStorage
+    // 1. Получаем реальные лайкнутые товары
     const wishlist = JSON.parse(localStorage.getItem('user_wishlist') || '[]');
 
-    // 2. Если пусто — показываем сообщение
+    // 2. Если пусто — показываем сообщение и включаем центрирование
     if (wishlist.length === 0) {
+        container.classList.add('is-empty'); // Добавляем класс для центрирования текста
         container.innerHTML = `
-            <div class="empty-state" style="text-align: center; padding: 40px 0;">
-                <i class="far fa-heart" style="font-size: 48px; color: #e2e8f0; margin-bottom: 15px;"></i>
-                <p>Список избранного пуст</p>
-                <a href="shop.html" class="save-btn" style="text-decoration: none; display: inline-block; margin-top: 15px;">Перейти к покупкам</a>
+            <div class="wishlist-empty-content" style="text-align: center; padding: 40px 0;">
+                <div class="empty-icon">
+                    <i class="far fa-heart" style="font-size: 80px; color: #e0e7f0;"></i>
+                </div>
+                <p class="empty-state" style="font-size: 18px; margin: 20px 0;">Список избранного пуст</p>
+                <a href="shop.html" class="save-btn" style="text-decoration: none; display: inline-block;">Перейти к покупкам</a>
             </div>`;
         return;
     }
 
-    // 3. Рендерим карточки точно так же, как в магазине
+    // 3. Если товары есть — ВЫКЛЮЧАЕМ класс центрирования
+    container.classList.remove('is-empty');
+
+    // 4. Рендерим карточки
     container.innerHTML = wishlist.map(item => {
-        // Логика путей к картинкам из вашего магазина
         let rawUrl = (item.image && item.image.trim() !== "") ? item.image.trim() : "nologo.png";
         let finalPath = "";
 
@@ -218,20 +223,27 @@ function renderWishlist() {
         const isDefault = finalPath === "nologo.png" ? "is-default" : "";
 
         return `
-        <div class="product-card">
-            <i class="fas fa-heart active wishlist-icon" style="color: #ff4757; cursor: pointer;" onclick="removeFromWishlist(${item.id})"></i>
+        <div class="product-card" style="width: 240px; flex-shrink: 0;">
+            <i class="fas fa-heart active wishlist-icon" 
+               style="color: #ff4757; cursor: pointer; position: absolute; top: 10px; right: 10px; z-index: 2;" 
+               onclick="removeFromWishlist(${item.id})"></i>
             
             <a href="product.html?id=${item.id}" style="text-decoration: none; color: inherit;">
-                <div class="product-img-container ${isDefault}">
+                <div class="product-img-container ${isDefault}" style="height: 180px; overflow: hidden; background: #f8fafc; border-radius: 15px;">
                     <img src="${imageUrl}" 
                          onerror="this.src='nologo.png'; this.parentElement.classList.add('is-default')" 
-                         alt="${item.name}">
+                         alt="${item.name}" 
+                         style="width: 100%; height: 100%; object-fit: contain; padding: 10px;">
                 </div>
-                <span class="product-name">${item.name}</span>
+                <div style="padding: 10px 0;">
+                    <span class="product-name" style="font-weight: 600; display: block; margin-bottom: 10px; height: 40px; overflow: hidden;">
+                        ${item.name}
+                    </span>
+                </div>
             </a>
-            <div class="product-footer">
-                <span class="price">${item.price} ₽</span>
-                <button class="btn-outline-green" onclick="addToCart(${item.id})">
+            <div class="product-footer" style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="price" style="font-weight: 800; font-size: 18px;">${item.price} ₽</span>
+                <button class="btn-outline-green" onclick="addToCart(${item.id})" style="padding: 8px 12px; border-radius: 10px;">
                     В корзину
                 </button>
             </div>
